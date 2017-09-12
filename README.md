@@ -7,7 +7,7 @@ on your journey, so be prepared for a fight!
 
 **RULES**
 
-#Player begins with:
+Player begins with:
 - 10 health
 - a macbook charger as a blunt weapon
 - no armor (armor just gives you extra health)
