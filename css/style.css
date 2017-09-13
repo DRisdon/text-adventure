@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: monospace;
+}
+
+#container {
+  text-align: center;
+}
+
+h1 {
+  margin: 80px auto;
+}
+
+button {
+  font-family: monospace;
+  padding: 15px 20px;
+  border-radius: 15px;
+  outline: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+#story, #instructions {
+  text-align: justify;
+  margin: 5vh 25vw;
+}
+
+#story {
+  font-weight: 800;
+  font-size: 30px;
+}
+
+#instructions {
+  font-size: 20px;
+}

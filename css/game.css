@@ -1,0 +1,24 @@
+body {
+  margin: 0
+}
+
+#container {
+  text-align: center;
+  margin: 0 30vw;
+}
+
+#scene-text {
+  text-align: left;
+  position: absolute;
+  top: 20vh;
+}
+
+#choices {
+  text-align: left;
+  position: absolute;
+  top: 60vh;
+}
+
+.choice:hover {
+  border: 1px solid black;
+}
