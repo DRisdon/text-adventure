@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-  var scenes = [['start', 'this is a test', '', [['CHOOSE ME', 'new-test'], ['NO CHOOSE ME!', 'newer-test']]],
-                ['new-test', 'this is another test', '', [['CHOOSE ME!!!', 'next'], ['NO CHOOSE ME!!!!', 'other']]],
-                ['newer-test', 'this is another test hahahaha', '', []]
+  var scenes = [['start', 'WALUIGI HAS NO MONEY! WHAT SHOULD HE DO?!?!', '', [['GO GET SOME MONEY FROM WARIO!', 'new-test'], ['BE SAD!', 'newer-test']]],
+                ['new-test', 'WOW! WALUIGI NOW HAS MONEY!', '', []],
+                ['newer-test', 'YOU LOSE!', '', []]
               ]; // array of scene arrays
               // each array = [name, prompt, background, [array of choices]]
               // each choice = [text, next scene]
@@ -11,9 +11,15 @@ $(document).ready(function() {
 
   var thisScene; //current scene
 
-  var player = {
+  var player = { // player object - not in use yet
     health: 10,
-    image: ''
+    image: './waluigi.png',
+    render: function() {
+      var $player = $('<div>');
+      $player.addClass('player');
+      $player.css('background-image', 'url('+player.image+')');
+      $('#player-image').append($player);
+    }
   };
 
   function makeScene(scene) { // scene constructor
@@ -23,9 +29,11 @@ $(document).ready(function() {
       background: scene[2],
       choices: [],
       render: function() { // render this scene to the DOM
+        $('#player-image').empty();
         $('#scene-text').empty();
         $('#choices').empty();
-        //set background here
+        console.log(this.background);
+        $('#container').css('background-image', 'url('+this.background+')');
         var $sceneText = $('<div>');
         $sceneText.addClass('scene');
         $sceneText.text(this.prompt);
@@ -38,6 +46,7 @@ $(document).ready(function() {
           $choice.click(nextScene); // add choice event listeners
           $('#choices').append($choice);
         }
+        player.render();
       }
     }
     addChoices(scene, newScene); // add choices to choices array property
