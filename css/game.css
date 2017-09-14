@@ -22,25 +22,32 @@ div {
 #scene-text {
   text-align: left;
   position: absolute;
-  margin: 20vh 30vw;
+  margin: 15vh 25vw 0 25vw;
+  font-size: 20px;
 }
 
 #choices {
   text-align: left;
   position: absolute;
-  margin: 60vh 30vw ;
+  margin: 80vh 25vw 0 25vw;
+  font-size: 18px;
+}
+
+.choice {
+  padding: 0 5px;
 }
 
 .choice:hover {
-  border: 1px solid black;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .player {
-  position: relative;
+  position: absolute;
   height: 200px;
   width: 100px;
-  top: 38vh;
-  left: 10vw;
+  top: 40vh;
+  left: 20vw;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;

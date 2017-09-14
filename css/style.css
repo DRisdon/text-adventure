@@ -18,6 +18,10 @@ button {
   outline: none;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 a {
   color: black;
   text-decoration: none;
