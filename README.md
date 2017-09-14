@@ -26,8 +26,10 @@ This game is designed to take any story input you may desire, as long as it fits
 
 The scenes array must be an array of scenes, each formatted like this:
 
-`['scene name', 'scene prompt', 'background-image', [['choice 1 prompt', 'choice 1 next scene', [enemy health, enemy damage]]]`
+`['scene name', 'scene prompt', 'background-image', [['choice 1 prompt', 'choice 1 next scene', [enemy health, enemy damage]], 'item']`
 
-The array of choices can have any number of choices, and the combat stats are optional.
+The array of choices can have any number of choices, and the combat stats are optional. Leave the combat array empty if there is no combat in a particular scene.
 
-You must have 1 scene with the name `'start'` and one with the name `'lose'`.
+You must have 1 scene with the name `'start'` and one with the name `'lose'`. The final scene can be called anything, and can optionally link back to `'start'`.
+
+Items are also optional. Make it an empty string if there is no item to be found.

@@ -29,7 +29,7 @@ div {
 #choices {
   text-align: left;
   position: absolute;
-  margin: 80vh 25vw 0 25vw;
+  margin: 75vh 25vw 0 25vw;
   font-size: 18px;
 }
 
@@ -40,6 +40,12 @@ div {
 .choice:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+#stats {
+  position: relative;
+  top: 30vh;
+  left: -25vw;
 }
 
 .player {
