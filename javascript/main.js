@@ -10,7 +10,7 @@ $(document).ready(function() {
       ['BE SAD!', 'lose', [], '']
     ]],
     ['eat-out', 'WALUIGI HAS TO BATTLE THE WAITER! WHAT DO?!?!', '', [
-      ['FIGHT HIM!', 'win', [11, 1], 'waiter\'s suit'],
+      ['FIGHT HIM!', 'win', [11, 1, 2], 'healing potion'],
       ['RUN AWAY AND BUY GROCERIES!', 'groceries', [], ''],
       ['BE SAD!', 'lose', [], '']
     ]],
@@ -33,9 +33,9 @@ $(document).ready(function() {
       cost: 0
     },
     {
-      name: 'waiter\'s suit',
-      type: 'armor',
-      defense: 4,
+      name: 'healing potion',
+      type: 'heal',
+      healing: 4,
       cost: 0
     }
   ];
@@ -49,7 +49,7 @@ $(document).ready(function() {
     maxHealth: 10,
     health: 10,
     damage: 1,
-    money: 5,
+    money: 1,
     image: './waluigi.png',
     render: function() {
       $('#player-image').empty();
@@ -64,6 +64,7 @@ $(document).ready(function() {
     fight: function(combat) { // get enemy health and damage and calculate combat result
       enemyHealth = combat[0];
       enemyDamage = combat[1];
+      reward = combat[2]
       console.log('Your health: ' + this.health + '/' + this.maxHealth + ' Your damage: ' + this.damage + '.');
       console.log('Enemy health: ' + enemyHealth + ' Enemy damage: ' + enemyDamage);
       if (this.damage >= enemyHealth) { // enemy is killed in 1 turn
@@ -80,7 +81,11 @@ $(document).ready(function() {
         player.health = 0;
         combatText = 'You fought hard, but couldn\'t win! YOU DIED!';
       }
-      else combatText = ('It was a tough fight, but you won! health remaining: ' + this.health + '/' + this.maxHealth + '.');
+      else combatText = ('It was a tough fight, but you won! health remaining: ' + this.health + '/' + this.maxHealth+ '.')
+      if (reward > 0) {
+        combatText += (' You also found ' + reward + ' coins on your enemy!');
+      }
+      player.money += reward;
       $('#scene-text').text(combatText);
       player.render();
       $('#choices').empty();
@@ -93,11 +98,13 @@ $(document).ready(function() {
       if (thisItem.cost > 0) { // if it costs money
         itemText = ('You bought the ' + thisItem.name + ' for ' + thisItem.cost + ' coins!')
       }
-      else itemText = ('You got the ' + thisItem.name + '!')
+      else if (thisItem.name != 'heal') {
+        itemText = ('You got the ' + thisItem.name + '! ');
+      }
       if (thisItem.type === 'weapon') { // weapon
         if ((thisItem.damage) > player.damage) {
           player.damage = thisItem.damage;
-          itemText += (' new damage: ' + player.damage + '.');
+          itemText += (' New damage: ' + player.damage + '.');
         }
         else itemText += ' Nothing happened because this weapon is weaker than yours! What a waste!';
       }
@@ -105,7 +112,7 @@ $(document).ready(function() {
         if ((player.maxHealth + thisItem.defense) > player.maxHealth) {
           player.maxHealth = 10 + thisItem.defense;
           player.health = player.health + thisItem.defense;
-          itemText += (' new health: ' + player.health + '/' + player.maxHealth + '.');
+          itemText += (' Health increased to: ' + player.health + '/' + player.maxHealth + '.');
         }
         else itemText += (' Nothing happened because this armor is weaker than yours! What a waste!');
       }
@@ -114,7 +121,7 @@ $(document).ready(function() {
           player.health = 10 + thisItem.healing;
         }
         else player.health = 10;
-        itemText += (' new health: ' + player.health + '/' + player.maxHealth + '.');
+        itemText += ('You were healed ' + thisItem.healing + ' Points! New health: ' + player.health + '/' + player.maxHealth + '.');
       }
       player.money += thisItem.cost;
       $('#scene-text').text(combatText + ' ' + itemText);
@@ -126,6 +133,7 @@ $(document).ready(function() {
       this.health = 10;
       this.damage = 1;
       this.image = './waluigi.png';
+      this.money = 0;
     }
   };
 
@@ -207,16 +215,20 @@ $(document).ready(function() {
         combatText = '';
         itemText = '';
         thisScene.render();
-      }, 2000);
+      }, 2500);
     }
     else thisScene.render();
   }
 
-  for (var i in scenes) { // just for testing. main game isn't done yet, although this functions fairly well
-    sceneObjects.push(makeScene(scenes[i]));
+  function init() {
+    for (var i in scenes) { // just for testing. main game isn't done yet, although this functions fairly well
+      sceneObjects.push(makeScene(scenes[i]));
+    }
+    console.log(sceneObjects);
+    thisScene = sceneObjects[0];
+    thisScene.render();
   }
-  console.log(sceneObjects);
-  thisScene = sceneObjects[0];
-  thisScene.render();
+
+  init();
 
 });
