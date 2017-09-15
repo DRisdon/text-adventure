@@ -29,7 +29,7 @@ div {
 #choices {
   text-align: left;
   position: absolute;
-  margin: 75vh 25vw 0 25vw;
+  margin: 70vh 25vw 0 25vw;
   font-size: 18px;
 }
 
@@ -48,12 +48,29 @@ div {
   left: -25vw;
 }
 
+#enemy-stats {
+  position: relative;
+  top: 25vh;
+  left: 15vw;
+}
+
 .player {
   position: absolute;
   height: 200px;
   width: 100px;
   top: 40vh;
   left: 20vw;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.enemy-image {
+  position: absolute;
+  height: 200px;
+  width: 100px;
+  top: 40vh;
+  left: 60vw;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
