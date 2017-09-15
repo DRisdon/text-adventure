@@ -12,7 +12,7 @@ $(document).ready(function() {
     ]],
     ['eat-out', 'WALUIGI HAS TO BATTLE HIMSELF?! WHAT DO?!?!', '', [
       ['FIGHT HIM!', 'win', 'waiter', 'healing potion'],
-      ['RUN AWAY AND BUY GROCERIES!', 'groceries', '', ''],
+      ['Run away!', 'groceries', 'waiter', ''],
       ['BE SAD!', 'lose', '', '']
     ]],
     ['win', 'WOW! WALUIGI ATE AND ISN\'T HUNGRY ANYMORE!', '', [
@@ -24,7 +24,7 @@ $(document).ready(function() {
   ]; // array of scene arrays
   // each scene array = [name, prompt, background, [array of choices]]
   // each choice array = [text, next scene, [enemyHealth, enemyDamage]]
-  //    (combat array optional - leave empty if unused)
+  //    (combat array optional - leave empty if unused) - include enemy in run away choices too
   //    (item optional - empty string if unused)
 
   var items = [{ // array of item objects - name, type, damage, cost
@@ -98,6 +98,14 @@ $(document).ready(function() {
       player.render();
       $('#choices').empty();
     },
+    runAway: function(choice) {
+      var escapeDamage = Math.floor(Math.random()*(choice.combat.damage + 1));
+      player.health -= escapeDamage;
+      combatText = 'You escaped, taking ' + escapeDamage + ' damage in the process!'
+      $('#scene-text').text(combatText);
+      player.render();
+      $('#choices').empty();
+    },
     getItem: function(choice) { // if the choice gives you an item
       var thisItem = items.find(function(item) {
         return item.name === choice.item;
@@ -164,6 +172,7 @@ $(document).ready(function() {
         $('#scene-text').empty();
         $('#choices').empty(); // clear previous scene, choices, and enemy
         $('#enemy').empty();
+        $('#enemy-stats').empty();
         //        console.log(this.background);
         $('#container').css('background-image', 'url(' + this.background + ')');
         var $sceneText = $('<div>');
@@ -217,7 +226,10 @@ $(document).ready(function() {
     var chosen = thisScene.choices.find(function(option) { // find choice that was clicked
       return option.next === choice.target.classList[1];
     });
-    if (chosen.combat) { // combat if there is any
+    if (chosen.choiceText === 'Run away!') { // running away automatically causes a random number between 0 and the enemy's damage
+      player.runAway(chosen);
+    }
+    else if (chosen.combat) { // combat if there is any
       player.fight(chosen.combat);
     }
     if (thisScene.name === 'win' || thisScene.name === 'lose') { // if the game is over, reset stats
