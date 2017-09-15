@@ -26,19 +26,26 @@ $(document).ready(function() {
   //    (combat array optional - leave empty if unused)
   //    (item optional - empty string if unused)
 
-  var items = [{
+  var items = [{ // array of item objects - name, type, damage, cost
       name: 'tennis racket',
       type: 'weapon',
       damage: 4,
-      cost: 0
+      cost: 3
     },
     {
       name: 'healing potion',
       type: 'heal',
-      healing: 4,
+      healing: 1,
       cost: 0
     }
   ];
+
+  var enemies = [{ // TODO: implement enemy objects - name, health, damage, image
+    name: 'waiter',
+    health: 11,
+    damage: 1,
+    image: ''
+  }];
 
   var sceneObjects = []; // will be filled with scenes once they are constructed
   var thisScene; //current scene
@@ -70,8 +77,7 @@ $(document).ready(function() {
       if (this.damage >= enemyHealth) { // enemy is killed in 1 turn
         console.log('You win in 1 hit! health remaining: ' + this.health + '/' + this.maxHealth + '.');
         return;
-      }
-      else {
+      } else {
         while (enemyHealth > this.damage) { // take turns damaging each other
           enemyHealth -= this.damage; //deal damage
           this.health -= enemyDamage; // take damage
@@ -80,10 +86,9 @@ $(document).ready(function() {
       if (player.health <= 0) { // player died
         player.health = 0;
         combatText = 'You fought hard, but couldn\'t win! YOU DIED!';
-      }
-      else combatText = ('It was a tough fight, but you won! health remaining: ' + this.health + '/' + this.maxHealth+ '.')
+      } else combatText = ('It was a tough fight, but you won! health remaining: ' + this.health + '/' + this.maxHealth + '.') // won fight
       if (reward > 0) {
-        combatText += (' You also found ' + reward + ' coins on your enemy!');
+        combatText += (' You also found ' + reward + ' coins on your enemy!'); // reward for winning
       }
       player.money += reward;
       $('#scene-text').text(combatText);
@@ -91,49 +96,50 @@ $(document).ready(function() {
       $('#choices').empty();
     },
     getItem: function(choice) { // if the choice gives you an item
-      thisItem = items.find(function(item) {
+      var thisItem = items.find(function(item) {
         return item.name === choice.item;
       });
       console.log(thisItem);
-      if (thisItem.cost > 0) { // if it costs money
+      if (thisItem.cost > 0 && thisItem.cost <= player.money) { // if it costs money
         itemText = ('You bought the ' + thisItem.name + ' for ' + thisItem.cost + ' coins!')
-      }
-      else if (thisItem.name != 'heal') {
+      } else if (thisItem.cost > player.money) { // can't afford item
+        itemText = ('You can\'t afford this item!')
+        $('#scene-text').text(combatText + ' ' + itemText);
+        player.render();
+        $('#choices').empty();
+        return;
+      } else if (thisItem.name != 'heal') {
         itemText = ('You got the ' + thisItem.name + '! ');
       }
       if (thisItem.type === 'weapon') { // weapon
         if ((thisItem.damage) > player.damage) {
-          player.damage = thisItem.damage;
+          player.damage = thisItem.damage; //weapon won't increase stats
           itemText += (' New damage: ' + player.damage + '.');
-        }
-        else itemText += ' Nothing happened because this weapon is weaker than yours! What a waste!';
-      }
-      else if (thisItem.type === 'armor') { // armor
+        } else itemText += ' Nothing happened because this weapon is weaker than yours! What a waste!'; // weapon won't increase stats
+      } else if (thisItem.type === 'armor') { // armor
         if ((player.maxHealth + thisItem.defense) > player.maxHealth) {
-          player.maxHealth = 10 + thisItem.defense;
+          player.maxHealth = 10 + thisItem.defense; // armor increases current and max health
           player.health = player.health + thisItem.defense;
           itemText += (' Health increased to: ' + player.health + '/' + player.maxHealth + '.');
-        }
-        else itemText += (' Nothing happened because this armor is weaker than yours! What a waste!');
-      }
-      else if (thisItem.type === 'heal') { // healing item
-        if (player.health + thisItem.healing <= 10) {
-          player.health = 10 + thisItem.healing;
-        }
-        else player.health = 10;
+        } else itemText += (' Nothing happened because this armor is weaker than yours! What a waste!');
+      } else if (thisItem.type === 'heal') { // healing item
+        if (player.health + thisItem.healing <= player.maxHealth) { // if item healing won't heal past max health
+          player.health += thisItem.healing;
+        } else player.health = player.maxHealth; // if item healing would go past max health, just heal to max
         itemText += ('You were healed ' + thisItem.healing + ' Points! New health: ' + player.health + '/' + player.maxHealth + '.');
       }
       player.money += thisItem.cost;
       $('#scene-text').text(combatText + ' ' + itemText);
       player.render();
       $('#choices').empty();
+      return thisItem;
     },
     reset: function() { // reset player stats for new game
       this.maxHealth = 10;
       this.health = 10;
       this.damage = 1;
       this.image = './waluigi.png';
-      this.money = 0;
+      this.money = 1;
     }
   };
 
@@ -186,42 +192,38 @@ $(document).ready(function() {
   }
 
   function nextScene(choice) { // when a choice is clicked
-    console.log('CHOICE MADE!');
     var chosen = thisScene.choices.find(function(option) { // find choice that was clicked
       return option.next === choice.target.classList[1];
     });
-    console.log(chosen.choiceText);
     if (chosen.combat.length > 0) { // combat if there is any
       player.fight(chosen.combat);
     }
-    if (player.health === 0 && thisScene.name !== 'lose') { // player is dead and you aren't on the loss screen
-      thisScene = sceneObjects.find(function(scene) { // if the player is dead
-        return scene.name === 'lose';
-      });
-    }
-    else thisScene = sceneObjects.find(function(scene) { // find the scene that choice links to
-      return scene.name === chosen.next;
-    });
-    //console.log(thisScene.name);
-    if (thisScene.name === 'start' || thisScene.name === 'lose') { // if the game is over
+    if (thisScene.name === 'win' || thisScene.name === 'lose') { // if the game is over, reset stats
       player.reset();
     }
     if (chosen.item.length > 0) { // if there is an item
       player.getItem(chosen);
     }
-    console.log(player);
+    if (player.health === 0 && thisScene.name !== 'lose') { // player is dead and you aren't on the loss screen
+      thisScene = sceneObjects.find(function(scene) { // if the player is dead
+        return scene.name === 'lose';
+      });
+    } else if (itemText !== 'You can\'t afford this item!') { // player can afford item or there is no item
+      thisScene = sceneObjects.find(function(scene) { // find the scene that choice links to
+        return scene.name === chosen.next;
+      });
+    }
     if (combatText.length > 0 || itemText.length > 0) { // if combat has taken place, display results for 2 seconds before next scene
       setTimeout(function() {
         combatText = '';
         itemText = '';
         thisScene.render();
       }, 2500);
-    }
-    else thisScene.render();
+    } else thisScene.render();
   }
 
-  function init() {
-    for (var i in scenes) { // just for testing. main game isn't done yet, although this functions fairly well
+  function init() { // start game
+    for (var i in scenes) {
       sceneObjects.push(makeScene(scenes[i]));
     }
     console.log(sceneObjects);
