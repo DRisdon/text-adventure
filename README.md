@@ -20,16 +20,18 @@ give you more health, or new weapons and armor. If you make it to the final stor
 *combat:*
 When you make a choice that has you fighting (they will say [combat] next to them), your damage will be compared to the enemy's health. If you can't defeat them in 1 hit, you will take damage for every hit it takes you to win. If your health hits 0, you lose.
 
-**DOCUMENTATION**
+**SETUP FOR OTHER STORIES**
 
 This game is designed to take any story input you may desire, as long as it fits the template.
 
 The scenes array must be an array of scenes, each formatted like this:
 
-`['scene name', 'scene prompt', 'background-image', [['choice 1 prompt', 'choice 1 next scene', [enemy health, enemy damage]], 'item']`
+`['scene name', 'scene prompt', 'background-image', [['choice 1 prompt', 'choice 1 next scene', 'enemy name', 'item']`
 
 The array of choices can have any number of choices, and the combat stats are optional. Leave the combat array empty if there is no combat in a particular scene.
 
-You must have 1 scene with the name `'start'` and one with the name `'lose'`. The final scene can be called anything, and can optionally link back to `'start'`.
+You must have 1 scene with the name `'start'`, one with the name `'lose'`, and another with the name `'win'`. The final scene can be called anything, and can optionally link back to `'start'`.
 
 Items are also optional. Make it an empty string if there is no item to be found.
+
+For run away choices, include the enemy as well, even though you won't be fighting it. Its stats are needed to calculate escape damage.

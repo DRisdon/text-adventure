@@ -22,7 +22,7 @@ div {
 #scene-text {
   text-align: left;
   position: absolute;
-  margin: 15vh 25vw 0 25vw;
+  margin: 5vh 25vw 0 25vw;
   font-size: 20px;
 }
 
@@ -45,7 +45,7 @@ div {
 #stats {
   position: relative;
   top: 30vh;
-  left: -25vw;
+  left: -27vw;
 }
 
 #enemy-stats {
