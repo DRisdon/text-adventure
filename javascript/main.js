@@ -44,9 +44,9 @@ $(document).ready(function() {
   var enemies = [{ // TODO: implement enemy objects - name, health, damage, image
     name: 'waiter',
     health: 11,
-    damage: 1,
+    damage: 20,
     reward: 3,
-    image: './waluigi.png'
+    image: './waluigi--.png'
   }];
 
   var sceneObjects = []; // will be filled with scenes once they are constructed
@@ -59,7 +59,8 @@ $(document).ready(function() {
     health: 10,
     damage: 1,
     money: 1,
-    image: './waluigi.png',
+    weapon: '', // for chosing character image
+    armor: '', // for chosing character image
     render: function() {
       $('#player-image').empty();
       $('#health').text('Health: ' + this.health + '/' + this.maxHealth);
@@ -67,7 +68,7 @@ $(document).ready(function() {
       $('#money').text('Money: ' + this.money);
       var $player = $('<div>');
       $player.addClass('player');
-      $player.css('background-image', 'url(' + this.image + ')'); // set player image depending on items
+      $player.css('background-image', ('url(./waluigi-' + this.weapon + '-' + this.armor + '.png)')); // set player image depending on items
       $('#player-image').append($player);
     },
     fight: function(combat) { // get enemy health and damage and calculate combat result
@@ -98,13 +99,22 @@ $(document).ready(function() {
       player.render();
       $('#choices').empty();
     },
-    runAway: function(choice) {
+    runAway: function(choice) { // player runs from a fight, taking a random fraction of the enemy's damage
       var escapeDamage = Math.floor(Math.random()*(choice.combat.damage + 1));
       player.health -= escapeDamage;
-      combatText = 'You escaped, taking ' + escapeDamage + ' damage in the process!'
-      $('#scene-text').text(combatText);
-      player.render();
-      $('#choices').empty();
+      if (player.health > 0) { // player successfuly escapes
+        combatText = 'You escaped, taking ' + escapeDamage + ' damage in the process!'
+        $('#scene-text').text(combatText);
+        player.render();
+        $('#choices').empty();
+      }
+      else { // enemy did too much damage and killed player
+        combatText = 'You failed to escape! You died!'
+        $('#scene-text').text(combatText);
+        player.health = 0;
+        player.render();
+        $('#choices').empty();
+      }
     },
     getItem: function(choice) { // if the choice gives you an item
       var thisItem = items.find(function(item) {
@@ -157,7 +167,8 @@ $(document).ready(function() {
       this.maxHealth = 10;
       this.health = 10;
       this.damage = 1;
-      this.image = './waluigi.png';
+      this.weapon = '';
+      this.armor = '';
       this.money = 1;
     }
   };
@@ -238,7 +249,7 @@ $(document).ready(function() {
     if (chosen.item.length > 0) { // if there is an item
       player.getItem(chosen);
     }
-    if (player.health === 0 && thisScene.name !== 'lose') { // player is dead and you aren't on the loss screen
+    if (player.health <= 0 && thisScene.name !== 'lose') { // player is dead and you aren't on the loss screen
       thisScene = sceneObjects.find(function(scene) { // if the player is dead
         return scene.name === 'lose';
       });
