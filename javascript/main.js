@@ -5,7 +5,7 @@ $(document).ready(function() {
       ['Go into the portal!', 'woods', '', '', '1'],
       ['Go get a new laptop!', 'apple', '', '', '2']
     ]],
-    ['woods', 'You step through the portal to find yourself in some woods you\'ve never seen before! All of a sudden, a bandit jumps out from behind a tree and demands all of your money!', '', [
+    ['woods', 'You step through the portal with only your Macbook charger as a blunt weapon, and find yourself in some woods you\'ve never seen before! All of a sudden, a bandit jumps out from behind a tree and demands all of your money!', '', [
       ['Fight!', 'fork', 'weak bandit', '', '3'],
       ['Run away!', 'fork', 'weak bandit', '', '4']
     ]],
@@ -39,8 +39,8 @@ $(document).ready(function() {
       ['Fight!', 'strong_guy', 'hermit', 'fur armor', '19'],
       ['Run away!', 'strong_guy', 'hermit', '', '20']
     ]],
-    ['mountain_right', 'You take the right path, and encounter another wolf!', '', [
-      ['Fight it!', 'strong_guy', 'wolf', 'fur armor', '21'],
+    ['mountain_right', 'You take the right path, and encounter another wolf! It\'s guarding a dead body that might have useful items!', '', [
+      ['Fight it!', 'strong_guy', 'wolf', 'club', '21'],
       ['Run away!', 'strong_guy', 'wolf', '', '22']
     ]],
     ['strong_guy', 'Along the road, You meet an extremely strong man. "ME WANT FIGHT." he says. Do you fight him?', '', [
@@ -67,7 +67,7 @@ $(document).ready(function() {
       ['Nothing!', 'mage_warning', '', '', '35']
     ]],
     ['long_way', 'You choose to take the long way around and find another way across the canyon. You find a sturdier bridge and cross it. Halfway across, a bandit attacks!', '', [
-      ['Fight!', 'stranger', 'bandit', 'healing potion', '36'],
+      ['Fight!', 'stranger', 'bandit', 'fur armor', '36'],
       ['Run away!', 'stranger', 'bandit', '', '37']
     ]],
     ['stranger', 'You soon encounter a drunk stranger, who offers you a mystery gift, but won\'t tell you what it is. Do you accept the stranger\'s gift?', '', [
@@ -96,158 +96,393 @@ $(document).ready(function() {
       ['A health potion! (heals 4 points) - 2 coins', 'mage_warning', '', 'strong healing potion', '48'],
       ['Nothing!', 'mage_warning', '', '', '49']
     ]],
-    ['mage_warning', 'You continue along the road, and are approached by a mysterious cloaked man. He says "Turn back, or die!" and gets ready to attack!', '', [
+    ['mage_warning', 'You continue along the road, and are approached by a mysterious cloaked woman. She says "Turn back, or die!" and gets ready to attack!', '', [
       ['Fight!', 'rest_town', 'messenger mage', '', '50'],
       ['Run away!', 'rest_town', 'messenger mage', '', '60']
     ]],
-    ['rest_town', 'After defeating the mysterious mage, you find yourself in a calm town on the edge of a dark, spooky forest. The local shop doesn\'t have great items, will sell you as many items as you can afford! Maybe you should stock up before heading into the dark woods!', '', [
+    ['rest_town', 'After escaping the mysterious mage, you find yourself in a calm town on the edge of a dark, spooky forest. The local shop doesn\'t have great items, will sell you as many items as you can afford! Maybe you should stock up before heading into the dark woods!', '', [
       ['The sword! (4 damage) - 2 coins', 'rest_town', '', 'sword', '61'],
       ['The leather armor! (2 extra health points) - 2 coins', 'rest_town', '', 'leather armor', '62'],
       ['A health potion! (heals 4 points) - 2 coins', 'rest_town', '', 'strong healing potion', '63'],
       ['Continue on with your journey!', 'spooky_woods', '', '', '64']
     ]],
-
+    ['spooky_woods', 'You head out from the village and into the spooky woods. After walking for a while, you are approached by a creepy-looking stranger, who offers you more gold than you could ever imagine. Sounds suspicious. Do you accept?', '', [
+      ['Yes!', 'skeleton_attack', '', '', '65'],
+      ['No!', 'mercenary_attack', '', '', '66']
+    ]],
+    ['skeleton_attack', 'It was a trick! The strange woman waves her hands around, and a skeleton climbs up out of the ground to attack!', '', [
+      ['Fight!', 'mercenary_attack', 'strong skeleton', '', '67'],
+      ['Run away!', 'mercenary_attack', 'strong skeleton', '', '68']
+    ]],
+    ['mercenary_attack', 'The strange woman goes on her way. Suddenly, you are ambushed by a mercenary, hired to murder you!', '', [
+      ['Fight!', 'evil_squirrel', 'mercenary', '', '69'],
+      ['Run away!', 'evil_squirrel', 'mercenary', '', '70']
+    ]],
+    ['evil_squirrel', 'After yet another brush with death, you are pleased to encounter a cute squirrel. Do you say hello and pet the little guy?', '', [
+      ['Pet him!', 'evil_squirrel_attack', '', '', '71'],
+      ['Leave him alone!', 'traveling_merchant', '', '', '72']
+    ]],
+    ['evil_squirrel_attack', 'You lean in to pet the squirrel, and suddenly, he grows to a massive size, and prepares to attack!', '', [
+      ['Fight!', 'traveling_merchant', 'squirrel', '', '73'],
+      ['Run away!', 'traveling_merchant', 'squirrel', '', '74']
+    ]],
+    ['traveling_merchant', 'You soon encounter a traveling merchant, the first friendly face you\'ve seen since town. She offers to sell you as many items as you\'d like.', '', [
+      ['The mace! (6 damage) - 10 coins', 'traveling_merchant', '', 'mace', '75'],
+      ['The steel armor! (6 extra health points) - 10 coins', 'traveling_merchant', '', 'steel armor', '76'],
+      ['A health potion! (heals 4 points) - 4 coins', 'traveling_merchant', '', 'expensive healing potion', '77'],
+      ['Continue on with your journey!', 'spooky_fork', '', '', '78']
+    ]],
+    ['spooky_fork', 'You arrive at a fork in the road. This one has signs for once! One path leads to the "Spooky Murder Dungeon," (sounds fun!) while the other leads to a place simply called "Murderville." Where do you go?', '', [
+      ['Spooky Murder Dungeon!', 'murder_dungeon_1', '', '', '79'],
+      ['Murderville!', 'murderville_1', '', '', '80']
+    ]],
+    ['murder_dungeon_1', 'You decide, due to the lack of a better option, to go to the Spooky Murder Dungeon. Immediately upon entering, you are attacked by a skeleton!', '', [
+      ['Fight!', 'murder_dungeon_2', 'skeleton', '', '81'],
+      ['Run away!', 'murder_dungeon_2', 'skeleton', '', '82']
+    ]],
+    ['murder_dungeon_2', 'Deeper into the dungeon, you are attacked by a zombie!', '', [
+      ['Fight!', 'murder_dungeon_3', 'zombie', '', '83'],
+      ['Run away!', 'murder_dungeon_3', 'zombie', '', '84']
+    ]],
+    ['murder_dungeon_3', 'Continuing on, you are attacked by an even stronger skeleton!', '', [
+      ['Fight!', 'murder_dungeon_4', 'skeleton knight', '', '85'],
+      ['Run away!', 'murder_dungeon_4', 'skeleton knight', '', '86']
+    ]],
+    ['murder_dungeon_4', 'Just before you reach the dungeon\'s exit, you are ambushed by a dark mage!', '', [
+      ['Fight!', 'final_shop', 'dungeon mage', 'big evil sword', '87'],
+      ['Run away!', 'final_shop', 'dungeon mage', 'big evil sword', '88']
+    ]],
+    ['murderville_1', 'You decide, due to the lack of a better option, to go to Murderville. Immediately upon entering the town, you are captured and dragged into an arena and locked in with a bandit! There\'s nowhere to run!', '', [
+      ['Fight!', 'murderville_2', 'bandit', '', '89']
+    ]],
+    ['murderville_2', 'The next battle puts you up against another bandit!', '', [
+      ['Fight!', 'murderville_3', 'hermit', '', '90']
+    ]],
+    ['murderville_3', 'Up next is a hired mercenary!', '', [
+      ['Fight!', 'murderville_4', 'mercenary', '', '91']
+    ]],
+    ['murderville_4', '"TIME TO DIE," shouts the announcer! The gate opens up, and in marches a huge mountain troll!', '', [
+      ['Fight!', 'final_shop', 'mountain troll', '', '92']
+    ]],
+    ['final_shop', 'After a long series of battles, you escape the danger and head on your way, soon arriving at the entrance to the evil wizard\'s tower! A traveling merchant hiding in the woods offers to sell you one item to help you on the final leg of your journey.', '', [
+      ['Buy the knight armor! (7 extra health points) - 15 coins', 'wizard_tower_entrance', '', 'knight armor', '93'],
+      ['Buy the megasword! (8 damage) - 15 coins', 'wizard_tower_entrance', '', 'megasword', '94'],
+      ['Buy nothing!', 'wizard_tower_entrance', '', '', '95']
+    ]],
+    ['wizard_tower_entrance', 'The merchant offers to heal you up for your final battles! The passages through the wizard\'s tower are narrow, so it is going to be impossible to escape battles from this point on!', '', [
+      ['Go inside!', 'wizard_tower_1', '', 'full heal', '96']
+    ]],
+    ['wizard_tower_1', 'Upon entering, you are attacked by a mercenary!', '', [
+      ['Fight!', 'wizard_tower_2', 'mercenary', '', '97']
+    ]],
+    ['wizard_tower_2', 'You continue on, only to be ambushed by a skeleton knight!', '', [
+      ['Fight!', 'wizard_tower_3', 'skeleton knight', '', '98']
+    ]],
+    ['wizard_tower_3', 'Further up the tower, A mage attacks!', '', [
+      ['Fight!', 'wizard_tower_4', 'dungeon mage', '', '99']
+    ]],
+    ['wizard_tower_4', 'As you near the wizard\'s lair, his apprentice approaches you. "You will never leave this place!" she shouts, preparing to fight!', '', [
+      ['Fight!', 'wizard_tower_5', 'apprentice', '', '100']
+    ]],
+    ['wizard_tower_5', 'You enter the wizard\'s lair. "HAHAHAHAHAHAHAHAHAHA" he laughs, summoning a massive monster to fight you, before fleeing deeper into his lair!', '', [
+      ['Fight!', 'wizard_tower_6', 'demon', '', '101']
+    ]],
+    ['wizard_tower_6', 'The demon monster was guarding three chests! You find one rusty key lying around that looks like it will break after opening one of them. Which do you open?', '', [
+      ['Right!', 'wizard_tower_7', '', 'sword of murder', '102'],
+      ['Middle!', 'wizard_tower_7', '', 'stick', '103'],
+      ['Left!', 'wizard_tower_7', '', 'gold dragon armor', '104']
+    ]],
+    ['wizard_tower_7', 'At last, you reach the wizard\'s study. "You made it so far, but you are going to die in this place!" he says. Time for the final battle!', '', [
+      ['Fight!', 'win', 'wizard', '', '105']
+    ]],
 
     ['win', 'You defeated the interdimensional wizard and got your extremely expensive Macbook back! Congrats!', '', [
-      ['START OVER', 'start', '', '100']
+      ['START OVER', 'start', '', '', '106']
     ]],
     ['lose', 'You\'re dead!', '', [
-      ['START OVER', 'start', '', '101']
+      ['START OVER', 'start', '', '', '107']
     ]],
     ['apple', 'You bought a new computer! You coward! Now you\'re broke!', '', [
-      ['START OVER', 'start', '', '102']
+      ['START OVER', 'start', '', '', '108']
     ]]
   ]; // array of scene arrays
   // each scene array = [name, prompt, background, [array of choices]]
-  // each choice array = [text, next scene, enemy, item]
+  // each choice array = [text, next scene, enemy, item, identifier]
   //    (combat optional - leave empty if unused) - include enemy in run away choices too
   //    (item optional - empty string if unused)
+  // identifier is a string of an integer, to identify a specific choice
 
   var items = [{ // array of item objects - name, type, damage, cost
       name: 'stick',
       type: 'weapon',
       damage: 2,
-      cost: 0
+      cost: 0,
+      image: 'stick'
     },
     {
       name: 'club',
       type: 'weapon',
       damage: 3,
-      cost: 0
+      cost: 0,
+      image: 'club'
     },
     {
       name: 'sword',
       type: 'weapon',
       damage: 4,
-      cost: 2
+      cost: 2,
+      image: 'sword'
     },
     {
       name: 'axe',
       type: 'weapon',
       damage: 5,
-      cost: 3
+      cost: 4,
+      image: 'axe'
     },
     {
       name: 'skeleton axe',
       type: 'weapon',
       damage: 5,
-      cost: 0
+      cost: 0,
+      image: 'axe'
+    },
+    {
+      name: 'mace',
+      type: 'weapon',
+      damage: 6,
+      cost: 10,
+      image: 'mace'
+    },
+    {
+      name: 'big evil sword',
+      type: 'weapon',
+      damage: 7,
+      cost: 0,
+      image: 'megasword'
+    },
+    {
+      name: 'megasword',
+      type: 'weapon',
+      damage: 8,
+      cost: 15,
+      image: 'megasword'
+    },
+    {
+      name: 'sword of murder',
+      type: 'weapon',
+      damage: 10,
+      cost: 0,
+      image: 'murdersword'
     },
     {
       name: 'fur armor',
       type: 'armor',
       defense: 1,
-      cost: 0
+      cost: 0,
+      image: 'furarmor'
     },
     {
       name: 'leather armor',
       type: 'armor',
       defense: 2,
-      cost: 2
+      cost: 2,
+      image: 'leatherarmor'
     },
     {
       name: 'iron armor',
       type: 'armor',
       defense: 4,
-      cost: 4
+      cost: 4,
+      image: 'ironarmor'
+    },
+    {
+      name: 'steel armor',
+      type: 'armor',
+      defense: 6,
+      cost: 10,
+      image: 'steelarmor'
+    },
+    {
+      name: 'knight armor',
+      type: 'armor',
+      defense: 7,
+      cost: 15,
+      image: 'knightarmor'
+    },
+    {
+      name: 'gold dragon armor',
+      type: 'armor',
+      defense: 10,
+      cost: 0,
+      image: 'dragonarmor'
     },
     {
       name: 'healing potion',
       type: 'heal',
       healing: 1,
-      cost: 0
+      cost: 1
     },
     {
       name: 'strong healing potion',
       type: 'heal',
       healing: 4,
-      cost: 0
+      cost: 2
+    },
+    {
+      name: 'expensive healing potion',
+      type: 'heal',
+      healing: 4,
+      cost: 4
     },
     {
       name: 'strong heal',
       type: 'heal',
       healing: 5,
       cost: 0
+    },
+    {
+      name: 'full heal',
+      type: 'heal',
+      healing: 20,
+      cost: 0
     }
   ];
 
-  var enemies = [{
-    name: 'weak bandit',
-    health: 1,
-    damage: 1,
-    reward: 2,
-    image: './waluigi--.png'
-  },
-  {
-    name: 'bandit',
-    health: 3,
-    damage: 3,
-    reward: 4,
-    image: './waluigi--.png'
-  },
-  {
-    name: 'hermit',
-    health: 5,
-    damage: 1,
-    reward: 2,
-    image: './waluigi--.png'
-  },
-  {
-    name: 'strong guy',
-    health: 5,
-    damage: 3,
-    reward: 4,
-    image: './waluigi--.png'
-  },
-  {
-    name: 'messenger mage',
-    health: 6,
-    damage: 4,
-    reward: 5,
-    image: './waluigi--.png'
-  },
-  {
-    name: 'wolf',
-    health: 3,
-    damage: 2,
-    reward: 0,
-    image: './waluigi--.png'
-  },
-  {
-    name: 'cave troll',
-    health: 6,
-    damage: 3,
-    reward: 5,
-    image: './waluigi--.png'
-  },
-  {
-    name: 'skeleton',
-    health: 5,
-    damage: 2,
-    reward: 2,
-    image: './waluigi--.png'
-  }
-];
+  var enemies = [{ // array of enemies - name, health, damage, reward, image
+      name: 'weak bandit',
+      health: 1,
+      damage: 1,
+      reward: 2,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'bandit',
+      health: 3,
+      damage: 3,
+      reward: 4,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'stranger',
+      health: 3,
+      damage: 2,
+      reward: 4,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'hermit',
+      health: 5,
+      damage: 1,
+      reward: 4,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'mercenary',
+      health: 6,
+      damage: 3,
+      reward: 5,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'strong guy',
+      health: 5,
+      damage: 3,
+      reward: 4,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'messenger mage',
+      health: 6,
+      damage: 4,
+      reward: 5,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'dungeon mage',
+      health: 8,
+      damage: 3,
+      reward: 2,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'apprentice',
+      health: 8,
+      damage: 5,
+      reward: 0,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'wolf',
+      health: 3,
+      damage: 2,
+      reward: 0,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'squirrel',
+      health: 7,
+      damage: 5,
+      reward: 6,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'cave troll',
+      health: 6,
+      damage: 3,
+      reward: 6,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'mountain troll',
+      health: 8,
+      damage: 6,
+      reward: 10,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'zombie',
+      health: 8,
+      damage: 2,
+      reward: 3,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'skeleton',
+      health: 3,
+      damage: 2,
+      reward: 3,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'strong skeleton',
+      health: 7,
+      damage: 4,
+      reward: 5,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'skeleton knight',
+      health: 8,
+      damage: 3,
+      reward: 5,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'demon',
+      health: 15,
+      damage: 5,
+      reward: 0,
+      image: './waluigi--.png'
+    },
+    {
+      name: 'wizard',
+      health: 20,
+      damage: 15,
+      reward: 0,
+      image: './waluigi--.png'
+    }
+  ];
 
   var sceneObjects = []; // will be filled with scenes once they are constructed
   var thisScene; //current scene
@@ -276,7 +511,7 @@ $(document).ready(function() {
       enemyMaxHealth = combat.health;
       enemyHealth = combat.health;
       enemyDamage = combat.damage;
-      reward = Math.floor(Math.random() * combat.reward) // random reward between 0 and the enemy's reward property
+      reward = Math.floor(Math.random() * (combat.reward - (combat.reward - 2)) + combat.reward - 2) // random reward between 0 and the enemy's reward property
       console.log('Your health: ' + this.health + '/' + this.maxHealth + ' Your damage: ' + this.damage + '.');
       console.log('Enemy health: ' + enemyHealth + ' Enemy damage: ' + enemyDamage);
       if (this.damage >= enemyHealth) { // enemy is killed in 1 turn
@@ -284,7 +519,7 @@ $(document).ready(function() {
       } else {
         while (enemyHealth > this.damage) { // take turns damaging each other
           enemyHealth -= this.damage; //deal damage
-          this.health -= Math.floor(Math.random() * (enemyDamage+1)); // take damage
+          this.health -= Math.floor(Math.random() * (enemyDamage - 1) + 1); // take damage
         }
       }
       if (player.health <= 0) { // player died
@@ -304,7 +539,7 @@ $(document).ready(function() {
       $('#choices').empty();
     },
     runAway: function(choice) { // player runs from a fight, taking a random fraction of the enemy's damage
-      var escapeDamage = Math.floor(Math.random() * (choice.combat.damage + 1));
+      var escapeDamage = Math.floor(Math.random() * (choice.combat.damage + 2));
       player.health -= escapeDamage;
       if (player.health > 0) { // player successfuly escapes
         combatText = 'You escaped, taking ' + escapeDamage + ' damage in the process!'
