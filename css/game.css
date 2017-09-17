@@ -45,19 +45,19 @@ div {
 #stats {
   position: relative;
   top: 30vh;
-  left: -27vw;
+  left: -25vw;
 }
 
 #enemy-stats {
   position: relative;
   top: 25vh;
-  left: 15vw;
+  left: 20vw;
 }
 
 .player {
   position: absolute;
-  height: 200px;
-  width: 100px;
+  height: 250px;
+  width: 150px;
   top: 40vh;
   left: 20vw;
   background-position: center;
@@ -67,8 +67,8 @@ div {
 
 .enemy-image {
   position: absolute;
-  height: 200px;
-  width: 100px;
+  height: 250px;
+  width: 250px;
   top: 40vh;
   left: 60vw;
   background-position: center;

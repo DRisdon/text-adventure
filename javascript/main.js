@@ -27,14 +27,14 @@ $(document).ready(function() {
     ]],
     ['over_bridge', 'The bridge holds up just fine! On the other side, you find a small shop selling a few useful items! The shopkeeper says "One item per customer!" What do you buy?', '', [
       ['The sword! (4 damage) - 2 coins', 'mountain_fork', '', 'sword', '13'],
-      ['The leather armor! (2 extra health points) - 2 coins', 'mountain_fork', '', 'leather armor', '14'],
+      ['The leather armor! (4 extra health points) - 2 coins', 'mountain_fork', '', 'leather armor', '14'],
       ['A health potion! (heals 1 point) - 1 coin', 'mountain_fork', '', 'healing potion', '15'],
       ['Nothing!', 'mountain_fork', '', '', '16']
-    ]],
+    ], 'merchant'],
     ['mountain_fork', 'You reach the foot of a mountain. There are two paths heading up and over it. A strange hermit on the side of the road says, "Take the left path! I PROMISE it\'s safe!" Which path do you choose?', '', [
       ['Left!', 'mountain_left', '', '', '17'],
       ['Right!', 'mountain_right', '', '', '18']
-    ]],
+    ], 'hermit'],
     ['mountain_left', 'You take the left path, but after walking for a while, you realize the hermit has been following you. He isn\'t a hermit at all! He\'s another bandit! Fight or run?', '', [
       ['Fight!', 'strong_guy', 'hermit', 'fur armor', '19'],
       ['Run away!', 'strong_guy', 'hermit', '', '20']
@@ -62,10 +62,10 @@ $(document).ready(function() {
     ]],
     ['snow_shop', 'You come to a snowy mountain village with a small shop, where once again you can buy a single item. What do you buy?', '', [
       ['The axe! (5 damage) - 4 coins', 'mage_warning', '', 'axe', '32'],
-      ['The iron armor! (4 extra health points) - 4 coins', 'mage_warning', '', 'iron armor', '33'],
+      ['The iron armor! (6 extra health points) - 4 coins', 'mage_warning', '', 'iron armor', '33'],
       ['A health potion! (heals 4 points) - 2 coins', 'mage_warning', '', 'strong healing potion', '34'],
       ['Nothing!', 'mage_warning', '', '', '35']
-    ]],
+    ], 'merchant'],
     ['long_way', 'You choose to take the long way around and find another way across the canyon. You find a sturdier bridge and cross it. Halfway across, a bandit attacks!', '', [
       ['Fight!', 'stranger', 'bandit', 'fur armor', '36'],
       ['Run away!', 'stranger', 'bandit', '', '37']
@@ -73,7 +73,7 @@ $(document).ready(function() {
     ['stranger', 'You soon encounter a drunk stranger, who offers you a mystery gift, but won\'t tell you what it is. Do you accept the stranger\'s gift?', '', [
       ['Take it!', 'mountain_pass', '', 'club', '36'],
       ['No way!', 'fight_stranger', '', '', '37']
-    ]],
+    ], 'drunk guy'],
     ['fight_stranger', 'Oh no! That angered him, and now he\'s attacking!', '', [
       ['Fight!', 'mountain_pass', 'stranger', 'club', '38'],
       ['Run away!', 'mountain_pass', '', '', '39']
@@ -89,23 +89,23 @@ $(document).ready(function() {
     ['mountain_pass_left', 'Deep underground, you encounter a prospector, looking for gold. He hasn\'t found any, but he offers you a sword he found for 2 coins. What a steal!', '', [
       ['Buy it!', 'mountain_pass_shop', '', 'sword', '44'],
       ['Nope!', 'mountain_pass_shop', '', '', '45']
-    ]],
+    ], 'prospector'],
     ['mountain_pass_shop', 'You come out the other end of the mountain passage, and find yourself in a village at the foot of the mountain. In town, there is a shop, offering a choice of one item. What do you buy?', '', [
       ['The axe! (5 damage) - 4 coins', 'mage_warning', '', 'axe', '46'],
-      ['The iron armor! (4 extra health points) - 4 coins', 'mage_warning', '', 'iron armor', '47'],
+      ['The iron armor! (6 extra health points) - 4 coins', 'mage_warning', '', 'iron armor', '47'],
       ['A health potion! (heals 4 points) - 2 coins', 'mage_warning', '', 'strong healing potion', '48'],
       ['Nothing!', 'mage_warning', '', '', '49']
-    ]],
+    ], 'merchant'],
     ['mage_warning', 'You continue along the road, and are approached by a mysterious cloaked woman. She says "Turn back, or die!" and gets ready to attack!', '', [
       ['Fight!', 'rest_town', 'messenger mage', '', '50'],
       ['Run away!', 'rest_town', 'messenger mage', '', '60']
     ]],
     ['rest_town', 'After escaping the mysterious mage, you find yourself in a calm town on the edge of a dark, spooky forest. The local shop doesn\'t have great items, will sell you as many items as you can afford! Maybe you should stock up before heading into the dark woods!', '', [
       ['The sword! (4 damage) - 2 coins', 'rest_town', '', 'sword', '61'],
-      ['The leather armor! (2 extra health points) - 2 coins', 'rest_town', '', 'leather armor', '62'],
+      ['The leather armor! (4 extra health points) - 2 coins', 'rest_town', '', 'leather armor', '62'],
       ['A health potion! (heals 4 points) - 2 coins', 'rest_town', '', 'strong healing potion', '63'],
       ['Continue on with your journey!', 'spooky_woods', '', '', '64']
-    ]],
+    ], 'merchant'],
     ['spooky_woods', 'You head out from the village and into the spooky woods. After walking for a while, you are approached by a creepy-looking stranger, who offers you more gold than you could ever imagine. Sounds suspicious. Do you accept?', '', [
       ['Yes!', 'skeleton_attack', '', '', '65'],
       ['No!', 'mercenary_attack', '', '', '66']
@@ -121,17 +121,17 @@ $(document).ready(function() {
     ['evil_squirrel', 'After yet another brush with death, you are pleased to encounter a cute squirrel. Do you say hello and pet the little guy?', '', [
       ['Pet him!', 'evil_squirrel_attack', '', '', '71'],
       ['Leave him alone!', 'traveling_merchant', '', '', '72']
-    ]],
+    ], 'squirrel'],
     ['evil_squirrel_attack', 'You lean in to pet the squirrel, and suddenly, he grows to a massive size, and prepares to attack!', '', [
       ['Fight!', 'traveling_merchant', 'squirrel', '', '73'],
       ['Run away!', 'traveling_merchant', 'squirrel', '', '74']
     ]],
     ['traveling_merchant', 'You soon encounter a traveling merchant, the first friendly face you\'ve seen since town. She offers to sell you as many items as you\'d like.', '', [
       ['The mace! (6 damage) - 10 coins', 'traveling_merchant', '', 'mace', '75'],
-      ['The steel armor! (6 extra health points) - 10 coins', 'traveling_merchant', '', 'steel armor', '76'],
+      ['The steel armor! (8 extra health points) - 10 coins', 'traveling_merchant', '', 'steel armor', '76'],
       ['A health potion! (heals 4 points) - 4 coins', 'traveling_merchant', '', 'expensive healing potion', '77'],
       ['Continue on with your journey!', 'spooky_fork', '', '', '78']
-    ]],
+    ], 'merchant'],
     ['spooky_fork', 'You arrive at a fork in the road. This one has signs for once! One path leads to the "Spooky Murder Dungeon," (sounds fun!) while the other leads to a place simply called "Murderville." Where do you go?', '', [
       ['Spooky Murder Dungeon!', 'murder_dungeon_1', '', '', '79'],
       ['Murderville!', 'murderville_1', '', '', '80']
@@ -165,10 +165,10 @@ $(document).ready(function() {
       ['Fight!', 'final_shop', 'mountain troll', '', '92']
     ]],
     ['final_shop', 'After a long series of battles, you escape the danger and head on your way, soon arriving at the entrance to the evil wizard\'s tower! A traveling merchant hiding in the woods offers to sell you one item to help you on the final leg of your journey.', '', [
-      ['Buy the knight armor! (7 extra health points) - 15 coins', 'wizard_tower_entrance', '', 'knight armor', '93'],
+      ['Buy the knight armor! (10 extra health points) - 15 coins', 'wizard_tower_entrance', '', 'knight armor', '93'],
       ['Buy the megasword! (8 damage) - 15 coins', 'wizard_tower_entrance', '', 'megasword', '94'],
       ['Buy nothing!', 'wizard_tower_entrance', '', '', '95']
-    ]],
+    ], 'merchant'],
     ['wizard_tower_entrance', 'The merchant offers to heal you up for your final battles! The passages through the wizard\'s tower are narrow, so it is going to be impossible to escape battles from this point on!', '', [
       ['Go inside!', 'wizard_tower_1', '', 'full heal', '96']
     ]],
@@ -278,42 +278,42 @@ $(document).ready(function() {
     {
       name: 'fur armor',
       type: 'armor',
-      defense: 1,
+      defense: 2,
       cost: 0,
       image: 'furarmor'
     },
     {
       name: 'leather armor',
       type: 'armor',
-      defense: 2,
+      defense: 4,
       cost: 2,
       image: 'leatherarmor'
     },
     {
       name: 'iron armor',
       type: 'armor',
-      defense: 4,
+      defense: 6,
       cost: 4,
       image: 'ironarmor'
     },
     {
       name: 'steel armor',
       type: 'armor',
-      defense: 6,
+      defense: 8,
       cost: 10,
       image: 'steelarmor'
     },
     {
       name: 'knight armor',
       type: 'armor',
-      defense: 7,
+      defense: 10,
       cost: 15,
       image: 'knightarmor'
     },
     {
       name: 'gold dragon armor',
       type: 'armor',
-      defense: 10,
+      defense: 15,
       cost: 0,
       image: 'dragonarmor'
     },
@@ -354,135 +354,157 @@ $(document).ready(function() {
       health: 1,
       damage: 1,
       reward: 2,
-      image: './waluigi--.png'
+      image: './images/enemies/bandit.png'
     },
     {
       name: 'bandit',
       health: 3,
       damage: 3,
       reward: 4,
-      image: './waluigi--.png'
+      image: './images/enemies/bandit-mace.png'
     },
     {
       name: 'stranger',
       health: 3,
       damage: 2,
       reward: 4,
-      image: './waluigi--.png'
+      image: './images/enemies/drunkguy.png'
     },
     {
       name: 'hermit',
       health: 5,
       damage: 1,
       reward: 4,
-      image: './waluigi--.png'
+      image: './images/enemies/bandit.png'
     },
     {
       name: 'mercenary',
       health: 6,
       damage: 3,
       reward: 5,
-      image: './waluigi--.png'
+      image: './images/enemies/bandit-mace.png'
     },
     {
       name: 'strong guy',
       health: 5,
       damage: 3,
       reward: 4,
-      image: './waluigi--.png'
+      image: './images/enemies/strongguy.png'
     },
     {
       name: 'messenger mage',
       health: 6,
       damage: 4,
       reward: 5,
-      image: './waluigi--.png'
+      image: './images/enemies/mage.png'
     },
     {
       name: 'dungeon mage',
       health: 8,
       damage: 3,
       reward: 2,
-      image: './waluigi--.png'
+      image: './images/enemies/mage.png'
     },
     {
       name: 'apprentice',
       health: 8,
       damage: 5,
       reward: 0,
-      image: './waluigi--.png'
+      image: './images/enemies/mage.png'
     },
     {
       name: 'wolf',
       health: 3,
       damage: 2,
       reward: 0,
-      image: './waluigi--.png'
+      image: './images/enemies/wolf.png'
     },
     {
       name: 'squirrel',
       health: 7,
       damage: 5,
       reward: 6,
-      image: './waluigi--.png'
+      image: './images/enemies/evilsquirrel.png'
     },
     {
       name: 'cave troll',
       health: 6,
       damage: 3,
       reward: 6,
-      image: './waluigi--.png'
+      image: './images/enemies/troll.png'
     },
     {
       name: 'mountain troll',
       health: 8,
       damage: 6,
       reward: 10,
-      image: './waluigi--.png'
+      image: './images/enemies/troll.png'
     },
     {
       name: 'zombie',
       health: 8,
       damage: 2,
       reward: 3,
-      image: './waluigi--.png'
+      image: './images/enemies/zombie.png'
     },
     {
       name: 'skeleton',
       health: 3,
       damage: 2,
       reward: 3,
-      image: './waluigi--.png'
+      image: './images/enemies/skeleton.png'
     },
     {
       name: 'strong skeleton',
       health: 7,
       damage: 4,
       reward: 5,
-      image: './waluigi--.png'
+      image: './images/enemies/skeleton-mace.png'
     },
     {
       name: 'skeleton knight',
       health: 8,
       damage: 3,
       reward: 5,
-      image: './waluigi--.png'
+      image: './images/enemies/skeleton-sword.png'
     },
     {
       name: 'demon',
-      health: 15,
+      health: 21,
       damage: 5,
       reward: 0,
-      image: './waluigi--.png'
+      image: './images/enemies/demon.png'
     },
     {
       name: 'wizard',
-      health: 20,
+      health: 25,
       damage: 15,
       reward: 0,
-      image: './waluigi--.png'
+      image: './images/enemies/wizard.png'
     }
   ];
+
+  var npcs = [{ // array of npcs - name, image
+      name: 'merchant',
+      image: './images/npc/merchant.png'
+    },
+    {
+      name: 'drunk guy',
+      image: './images/npc/drunkstranger.png'
+    },
+    {
+      name: 'squirrel',
+      image: './images/npc/squirrel.png'
+    },
+    {
+      name: 'hermit',
+      image: './images/npc/hermit.png'
+    },
+    {
+      name: 'prospector',
+      image: './images/npc/prospector.png'
+    }
+  ]
 
   var sceneObjects = []; // will be filled with scenes once they are constructed
   var thisScene; //current scene
@@ -503,7 +525,12 @@ $(document).ready(function() {
       $('#money').text('Money: ' + this.money);
       var $player = $('<div>');
       $player.addClass('player');
-      $player.css('background-image', ('url(./waluigi-' + this.weapon + '-' + this.armor + '.png)')); // set player image depending on items
+      if (player.health <= 0) {
+          $player.css('background-image', ('./player/dead.png)'));
+      }
+      else {
+        $player.css('background-image', ('url(./images/player/player-' + this.weapon + '-' + this.armor + '.png)')); // set player image depending on items
+      }
       $('#player-image').append($player);
     },
     fight: function(combat) { // get enemy health and damage and calculate combat result
@@ -588,6 +615,7 @@ $(document).ready(function() {
       if ((thisItem.damage) > player.damage) {
         player.damage = thisItem.damage; //weapon won't increase stats
         itemText += (' New damage: ' + player.damage + '.');
+        player.weapon = thisItem.image;
       } else itemText += ' Nothing happened because this weapon is weaker than yours! What a waste!'; // weapon won't increase stats
     },
     getArmor: function(thisItem) { // get new armor
@@ -596,13 +624,14 @@ $(document).ready(function() {
         player.maxHealth = 10 + thisItem.defense; // armor increases current and max health
         player.health = player.health + increase;
         itemText += (' Health increased to: ' + player.health + '/' + player.maxHealth + '.');
+        player.armor = thisItem.image;
       } else itemText += (' Nothing happened because this armor is weaker than yours! What a waste!');
     },
     getHealed: function(thisItem) { // get a healing item or spell used on you
       if (player.health + thisItem.healing <= player.maxHealth) { // if item healing won't heal past max health
         player.health += thisItem.healing;
       } else player.health = player.maxHealth; // if item healing would go past max health, just heal to max
-      itemText += ('You were healed ' + thisItem.healing + ' Points! New health: ' + player.health + '/' + player.maxHealth + '.');
+      itemText += (' You were healed ' + thisItem.healing + ' Points! New health: ' + player.health + '/' + player.maxHealth + '.');
     },
     reset: function() { // reset player stats for new game
       this.maxHealth = 10;
@@ -619,6 +648,9 @@ $(document).ready(function() {
       name: scene[0],
       prompt: scene[1],
       background: scene[2],
+      npc: (npcs.find(function(npc) {
+        return npc.name === scene[4];
+      })),
       choices: [],
       render: function() { // render this scene to the DOM
         $('#scene-text').empty();
@@ -640,6 +672,12 @@ $(document).ready(function() {
             var $enemyImage = $('<div>');
             $enemyImage.addClass('enemy-image');
             $enemyImage.css('background-image', 'url(' + this.choices[i].combat.image + ')');
+            $('#enemy').append($enemyImage);
+          }
+          else if (this.npc !== undefined) {
+            var $enemyImage = $('<div>');
+            $enemyImage.addClass('enemy-image');
+            $enemyImage.css('background-image', 'url(' + this.npc.image + ')');
             $('#enemy').append($enemyImage);
           }
         }
