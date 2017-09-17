@@ -75,3 +75,37 @@ div {
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+@media (max-width: 1000px) {
+
+  #scene-text {
+    font-size: 14px;
+    margin: 10px;
+  }
+
+  #choices {
+    font-size: 14px;
+    margin: 70vh 10px;
+  }
+
+  #stats {
+    font-size: 12px;
+  }
+
+  #enemy-stats {
+    font-size: 12px;
+  }
+
+  .player {
+    height: 150px;
+    width: 150px;
+    left: 8vw;
+  }
+
+  .enemy-image {
+    height: 150px;
+    width: 150px;
+    left: 50vw;
+  }
+
+}

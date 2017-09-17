@@ -206,7 +206,8 @@ $(document).ready(function() {
       ['START OVER', 'start', '', '', '108']
     ]]
   ]; // array of scene arrays
-  // each scene array = [name, prompt, background, [array of choices]]
+  // each scene array = [name, prompt, background, [array of choices], npc]
+  // npc is optional, and shouldn't exist in same scene with an enemy
   // each choice array = [text, next scene, enemy, item, identifier]
   //    (combat optional - leave empty if unused) - include enemy in run away choices too
   //    (item optional - empty string if unused)
