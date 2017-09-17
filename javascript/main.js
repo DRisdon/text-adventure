@@ -5,15 +5,15 @@ $(document).ready(function() {
       ['Go into the portal!', 'woods', '', '', '1'],
       ['Go get a new laptop!', 'apple', '', '', '2']
     ]],
-    ['woods', 'You step through the portal with only your Macbook charger as a blunt weapon, and find yourself in some woods you\'ve never seen before! All of a sudden, a bandit jumps out from behind a tree and demands all of your money!', '', [
+    ['woods', 'You step through the portal with only your Macbook charger as a blunt weapon, and find yourself in some woods you\'ve never seen before! All of a sudden, a bandit jumps out from behind a tree and demands all of your money!', './images/backgrounds/forest.jpg', [
       ['Fight!', 'fork', 'weak bandit', '', '3'],
       ['Run away!', 'fork', 'weak bandit', '', '4']
     ]],
-    ['fork', 'You come to a fork in the dirt road. On the ground is a stick you can use as a weapon for the time being. On your left, you can see a distant village, but it\'s under attack! Do you go into the town to try to help, or take the path around it?', '', [
+    ['fork', 'You come to a fork in the dirt road. On the ground is a stick you can use as a weapon for the time being. On your left, you can see a distant village, but it\'s under attack! Do you go into the town to try to help, or take the path around it?', './images/backgrounds/forest.jpg', [
       ['Go help the town!', 'town_attack', '', 'stick', '5'],
       ['Go around!', 'wolf_attack', '', 'stick', '6']
     ]],
-    ['wolf_attack', 'You take the long way, deciding not to help the town. You come upon a wolf, ready to attack!', '', [
+    ['wolf_attack', 'You take the long way, deciding not to help the town. You come upon a wolf, ready to attack!', './images/backgrounds/forest.jpg', [
       ['Fight!', 'rope_bridge', 'wolf', '', '7'],
       ['Run away!', 'rope_bridge', 'wolf', '', '8']
     ]],
@@ -66,15 +66,15 @@ $(document).ready(function() {
       ['A health potion! (heals 4 points) - 2 coins', 'mage_warning', '', 'strong healing potion', '34'],
       ['Nothing!', 'mage_warning', '', '', '35']
     ], 'merchant'],
-    ['long_way', 'You choose to take the long way around and find another way across the canyon. You find a sturdier bridge and cross it. Halfway across, a bandit attacks!', '', [
+    ['long_way', 'You choose to take the long way around and find another way across the canyon. You find a sturdier bridge and cross it. Halfway across, a bandit attacks!', './images/backgrounds/forest.jpg', [
       ['Fight!', 'stranger', 'bandit', 'fur armor', '36'],
       ['Run away!', 'stranger', 'bandit', '', '37']
     ]],
-    ['stranger', 'You soon encounter a drunk stranger, who offers you a mystery gift, but won\'t tell you what it is. Do you accept the stranger\'s gift?', '', [
+    ['stranger', 'You soon encounter a drunk stranger, who offers you a mystery gift, but won\'t tell you what it is. Do you accept the stranger\'s gift?', './images/backgrounds/forest.jpg', [
       ['Take it!', 'mountain_pass', '', 'club', '36'],
       ['No way!', 'fight_stranger', '', '', '37']
     ], 'drunk guy'],
-    ['fight_stranger', 'Oh no! That angered him, and now he\'s attacking!', '', [
+    ['fight_stranger', 'Oh no! That angered him, and now he\'s attacking!', './images/backgrounds/forest.jpg', [
       ['Fight!', 'mountain_pass', 'stranger', 'club', '38'],
       ['Run away!', 'mountain_pass', '', '', '39']
     ]],
@@ -96,7 +96,7 @@ $(document).ready(function() {
       ['A health potion! (heals 4 points) - 2 coins', 'mage_warning', '', 'strong healing potion', '48'],
       ['Nothing!', 'mage_warning', '', '', '49']
     ], 'merchant'],
-    ['mage_warning', 'You continue along the road, and are approached by a mysterious cloaked woman. She says "Turn back, or die!" and gets ready to attack!', '', [
+    ['mage_warning', 'You continue along the road, and are approached by a mysterious cloaked woman. She says "Turn back, or die!" and gets ready to attack!', './images/backgrounds/forest.jpg', [
       ['Fight!', 'rest_town', 'messenger mage', '', '50'],
       ['Run away!', 'rest_town', 'messenger mage', '', '60']
     ]],
@@ -526,7 +526,7 @@ $(document).ready(function() {
       var $player = $('<div>');
       $player.addClass('player');
       if (player.health <= 0) {
-          $player.css('background-image', ('./player/dead.png)'));
+          $player.css('background-image', ('./player/dead.png)')); // player is dead
       }
       else {
         $player.css('background-image', ('url(./images/player/player-' + this.weapon + '-' + this.armor + '.png)')); // set player image depending on items

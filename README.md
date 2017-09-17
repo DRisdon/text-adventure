@@ -20,6 +20,14 @@ give you more health, or new weapons and armor. If you make it to the final stor
 *combat:*
 When you make a choice that has you fighting (they will say [combat] next to them), your damage will be compared to the enemy's health. If you can't defeat them in 1 hit, you will take damage for every hit it takes you to win. If your health hits 0, you lose.
 
+**TECH AND APPROACH**
+
+This game primarily makes use of JQuery for DOM manipulation. Everything else is vanilla JavaScript, CSS and HTML. All images were hand-drawn.
+
+The game is set up in an object-oriented manner. There are objects for the player, each possible scene and all of their possible choices, enemies, items, and NPC's. The player has methods for acquiring items, fighting, and rendering, based on new items and stats. The scenes have a property linked to all of the possible choices that can be made at the time. The actual changing of scenes happens in a global `nextScene()` function, which eventually calls the `render()` functions of the player and scene.
+
+Combat is calculated based on player health and damage versus enemy health and damage. If the player fails to win a battle in 1 turn, the enemy will deal a random portion of their damage stat for every turn they are still alive. 
+
 **SETUP FOR OTHER STORIES**
 
 This game is designed to take any story input you may desire, as long as it fits the template.
@@ -35,3 +43,8 @@ You must have 1 scene with the name `'start'`, one with the name `'lose'`, and a
 Items are also optional. Make it an empty string if there is no item to be found.
 
 For run away choices, include the enemy as well, even though you won't be fighting it. Its stats are needed to calculate escape damage.
+
+**WIREFRAMES**
+
+![Landing Page](./images/other/landing-wireframe.png)
+![game Page](./images/other/game-wireframe.png)
