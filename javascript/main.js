@@ -28,7 +28,7 @@ $(document).ready(function() {
     ['over_bridge', 'The bridge holds up just fine! On the other side, you find a small shop selling a few useful items! The shopkeeper says "One item per customer!" What do you buy?', '', [
       ['The sword! (4 damage) - 2 coins', 'mountain_fork', '', 'sword', '13'],
       ['The leather armor! (4 extra health points) - 2 coins', 'mountain_fork', '', 'leather armor', '14'],
-      ['A health potion! (heals 1 point) - 1 coin', 'mountain_fork', '', 'healing potion', '15'],
+      ['A health potion! (heals 2 points) - 1 coin', 'mountain_fork', '', 'healing potion', '15'],
       ['Nothing!', 'mountain_fork', '', '', '16']
     ], 'merchant'],
     ['mountain_fork', 'You reach the foot of a mountain. There are two paths heading up and over it. A strange hermit on the side of the road says, "Take the left path! I PROMISE it\'s safe!" Which path do you choose?', '', [
@@ -321,7 +321,7 @@ $(document).ready(function() {
     {
       name: 'healing potion',
       type: 'heal',
-      healing: 1,
+      healing: 2,
       cost: 1
     },
     {
