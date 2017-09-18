@@ -2,7 +2,6 @@ body {
   margin: 0;
   font-family: 'Patrick Hand SC', cursive;
   color: #494747;
-  background-color: #f6f0df;
   text-shadow: 2px 1px #d4cdba;
 }
 
@@ -16,7 +15,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #f6f0df;
+  background-color: #f6ecd1;
   background-blend-mode: multiply;
 }
 
