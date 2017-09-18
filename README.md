@@ -7,7 +7,7 @@ on your journey, so be prepared for a fight!
 
 **RULES**
 
-![Player Character](./images/player/player--.png = 200x)
+![Player Character](./images/player/player--.png =200x200)
 
 Player begins with:
 - 10 health
