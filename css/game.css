@@ -92,6 +92,7 @@ div {
   .choice {
     background-color: rgba(201, 201, 201, 0.5);
     margin-top: 5px;
+    border-radius: 10px;
   }
 
   .choice:active {
