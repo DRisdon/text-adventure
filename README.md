@@ -1,6 +1,6 @@
 ## TEXT ADVENTURE GAME
 
-**PLAYE THE GAME [HERE](https://drisdon.github.io/text-adventure/)**
+**PLAY THE GAME [HERE](https://drisdon.github.io/text-adventure/)**
 
 **STORY?**
 
