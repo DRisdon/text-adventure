@@ -31,7 +31,7 @@ div {
 #choices {
   text-align: left;
   position: absolute;
-  margin: 65vh 25vw 0 25vw;
+  margin: 80vh 25vw 0 25vw;
   font-size: 18px;
 }
 
@@ -45,15 +45,27 @@ div {
 }
 
 #stats {
-  position: relative;
+  position: absolute;
   top: 30vh;
-  left: -25vw;
+  left: 23vw;
+  line-height: 17px;
+  text-align: left;
+}
+
+#player-name {
+  font-size: 24px;
 }
 
 #enemy-stats {
-  position: relative;
-  top: 25vh;
-  left: 20vw;
+  position: absolute;
+  top: 33vh;
+  left: 67vw;
+  line-height: 17px;
+  text-align: right;
+}
+
+#enemy-name {
+  font-size: 24px;
 }
 
 .player {
@@ -87,7 +99,7 @@ div {
 
   #choices {
     font-size: 18px;
-    margin: 65vh 10px;
+    margin: 70vh 10px;
   }
 
   .choice {
@@ -103,10 +115,12 @@ div {
 
   #stats {
     font-size: 12px;
+    left: 19vw;
   }
 
   #enemy-stats {
     font-size: 12px;
+    left: 60vw;
   }
 
   .player {

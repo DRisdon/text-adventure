@@ -97,8 +97,8 @@ $(document).ready(function() {
       ['Nothing!', 'mage_warning', '', '', '49']
     ], 'merchant'],
     ['mage_warning', 'You continue along the road, and are approached by a mysterious cloaked woman. She says "Turn back, or die!" and gets ready to attack!', './images/backgrounds/forest.jpg', [
-      ['Fight!', 'rest_town', 'messenger mage', '', '50'],
-      ['Run away!', 'rest_town', 'messenger mage', '', '60']
+      ['Fight!', 'rest_town', 'mysterius mage', '', '50'],
+      ['Run away!', 'rest_town', 'mysterius mage', '', '60']
     ]],
     ['rest_town', 'After escaping the mysterious mage, you find yourself in a calm town on the edge of a dark, spooky forest. The local shop doesn\'t have great items, will sell you as many items as you can afford! Maybe you should stock up before heading into the dark woods!', '', [
       ['The sword! (4 damage) - 2 coins', 'rest_town', '', 'sword', '61'],
@@ -149,14 +149,14 @@ $(document).ready(function() {
       ['Run away!', 'murder_dungeon_4', 'skeleton knight', '', '86']
     ]],
     ['murder_dungeon_4', 'Just before you reach the dungeon\'s exit, you are ambushed by a dark mage!', '', [
-      ['Fight!', 'final_shop', 'dungeon mage', 'big evil sword', '87'],
-      ['Run away!', 'final_shop', 'dungeon mage', 'big evil sword', '88']
+      ['Fight!', 'final_shop', 'dark mage', 'big evil sword', '87'],
+      ['Run away!', 'final_shop', 'dark mage', 'big evil sword', '88']
     ]],
     ['murderville_1', 'You decide, due to the lack of a better option, to go to Murderville. Immediately upon entering the town, you are captured and dragged into an arena and locked in with a bandit! There\'s nowhere to run! "Fight or die!" shouts the arena announcer!', '', [
       ['Fight!', 'murderville_2', 'bandit', '', '89']
     ]],
     ['murderville_2', 'The next battle puts you up against another bandit! Tired of these guys yet?', '', [
-      ['Fight!', 'murderville_3', 'hermit', '', '90']
+      ['Fight!', 'murderville_3', 'bandit', '', '90']
     ]],
     ['murderville_3', 'Up next is a hired mercenary!', '', [
       ['Fight!', 'murderville_4', 'mercenary', '', '91']
@@ -179,10 +179,10 @@ $(document).ready(function() {
       ['Fight!', 'wizard_tower_3', 'skeleton knight', '', '98']
     ]],
     ['wizard_tower_3', 'Further up the tower, A mage attacks!', '', [
-      ['Fight!', 'wizard_tower_4', 'dungeon mage', '', '99']
+      ['Fight!', 'wizard_tower_4', 'dark mage', '', '99']
     ]],
-    ['wizard_tower_4', 'As you near the wizard\'s lair, his apprentice approaches you. "You should have backed up your computer!" she shouts, preparing to fight!', '', [
-      ['Fight!', 'wizard_tower_5', 'apprentice', '', '100']
+    ['wizard_tower_4', 'As you near the wizard\'s lair, his wizard\'s apprentice approaches you. "You should have backed up your computer!" she shouts, preparing to fight!', '', [
+      ['Fight!', 'wizard_tower_5', 'wizard\'s apprentice', '', '100']
     ]],
     ['wizard_tower_5', 'You enter the wizard\'s lair. "HAHAHAHAHAHAHAHAHAHA" he laughs, summoning a massive monster to fight you, before fleeing deeper into his lair!', '', [
       ['Fight!', 'wizard_tower_6', 'demon', '', '101']
@@ -360,54 +360,54 @@ $(document).ready(function() {
     {
       name: 'bandit',
       health: 4,
-      damage: 3,
+      damage: 4,
       reward: 4,
       image: './images/enemies/bandit-mace.png'
     },
     {
       name: 'stranger',
       health: 3,
-      damage: 3,
+      damage: 4,
       reward: 4,
       image: './images/enemies/drunkguy.png'
     },
     {
       name: 'hermit',
       health: 5,
-      damage: 3,
+      damage: 4,
       reward: 4,
       image: './images/enemies/bandit.png'
     },
     {
       name: 'mercenary',
       health: 7,
-      damage: 4,
+      damage: 5,
       reward: 5,
       image: './images/enemies/bandit-mace.png'
     },
     {
       name: 'strong guy',
       health: 5,
-      damage: 3,
+      damage: 4,
       reward: 4,
       image: './images/enemies/strongguy.png'
     },
     {
-      name: 'messenger mage',
+      name: 'mysterious mage',
       health: 6,
       damage: 4,
       reward: 5,
       image: './images/enemies/mage.png'
     },
     {
-      name: 'dungeon mage',
+      name: 'dark mage',
       health: 8,
       damage: 6,
       reward: 2,
       image: './images/enemies/mage.png'
     },
     {
-      name: 'apprentice',
+      name: 'wizard\'s apprentice',
       health: 8,
       damage: 7,
       reward: 0,
@@ -451,7 +451,7 @@ $(document).ready(function() {
     {
       name: 'skeleton',
       health: 3,
-      damage: 2,
+      damage: 4,
       reward: 3,
       image: './images/enemies/skeleton.png'
     },
@@ -472,14 +472,14 @@ $(document).ready(function() {
     {
       name: 'demon',
       health: 21,
-      damage: 6,
+      damage: 5,
       reward: 0,
       image: './images/enemies/demon.png'
     },
     {
       name: 'wizard',
       health: 25,
-      damage: 15,
+      damage: 7,
       reward: 0,
       image: './images/enemies/wizard.png'
     }
@@ -525,6 +525,7 @@ $(document).ready(function() {
     armor: '', // for chosing character image
     render: function() {
       $('#player-image').empty();
+      $('#player-name').text(localStorage.getItem('name'));
       $('#health').text('Health: ' + this.health + '/' + this.maxHealth);
       $('#damage').text('Damage: ' + this.damage);
       $('#money').text('Money: ' + this.money);
@@ -551,7 +552,7 @@ $(document).ready(function() {
       } else {
         while (enemyHealth > this.damage) { // take turns damaging each other
           enemyHealth -= this.damage; //deal damage
-          this.health -= Math.floor(Math.random() * (enemyDamage - 1) + 1); // take damage
+          this.health -= Math.floor(Math.random() * (enemyDamage - Math.max((enemyDamage/3), 1)) + Math.max((enemyDamage/3), 1)); // take damage
         }
       }
       if (player.health <= 0) { // player died
@@ -663,6 +664,7 @@ $(document).ready(function() {
         $('#enemy').empty();
         $('#enemy-health').empty();
         $('#enemy-damage').empty();
+        $('#enemy-name').empty();
         //        console.log(this.background);
         $('#container').css('background-image', 'url(' + this.background + ')');
         var $sceneText = $('<div>');
@@ -672,6 +674,7 @@ $(document).ready(function() {
         for (var i in this.choices) { // render choice text
           this.choices[i].render();
           if (this.choices[i].combat !== undefined) { // render an enemy if there is one
+            $('#enemy-name').text(this.choices[i].combat.name);
             $('#enemy-health').text('Health: ' + this.choices[i].combat.health + '/' + this.choices[i].combat.health);
             $('#enemy-damage').text('Damage: ' + this.choices[i].combat.damage);
             var $enemyImage = $('<div>');
@@ -760,6 +763,7 @@ $(document).ready(function() {
     thisScene = sceneObjects[0];
     thisScene.render();
   }
+
 
   init();
 

@@ -13,6 +13,7 @@ Player begins with:
 - 10 health
 - a macbook charger as a blunt weapon
 - no armor (armor just gives you extra health)
+- no money
 
 You start outside the portal into another dimension. You are presented with 2 choices: go in after the wizard, or go buy a new laptop.
 Buying a new laptop ends the game immediately. Going into the portal initiates the game. You will progress through a series of story choices,
@@ -26,7 +27,7 @@ When you make a choice that has you fighting (they will say [combat] next to the
 
 This game primarily makes use of JQuery for DOM manipulation. Everything else is vanilla JavaScript, CSS and HTML. All images were hand-drawn.
 
-The game is set up in an object-oriented manner. There are objects for the player, each possible scene and all of their possible choices, enemies, items, and NPC's. The player has methods for acquiring items, fighting, and rendering, based on new items and stats. The scenes have a property linked to all of the possible choices that can be made at the time. The actual changing of scenes happens in a global `nextScene()` function, which eventually calls the `render()` functions of the player and scene.
+The game is set up in an object-oriented manner, through a sort of linked directed graph data structure. There are objects for the player, each possible scene and all of their possible choices, enemies, items, and NPC's. The player has methods for acquiring items, fighting, and rendering, based on new items and stats. The scenes have a property linked to all of the possible choices that can be made at the time. The actual changing of scenes happens in a global `nextScene()` function, which eventually calls the `render()` functions of the player and scene.
 
 Combat is calculated based on player health and damage versus enemy health and damage. If the player fails to win a battle in 1 turn, the enemy will deal a random portion of their damage stat for every turn they are still alive.
 
