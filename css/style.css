@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  font-family: monospace;
+  font-family: 'Patrick Hand SC', cursive;
+  color: rgb(87, 87, 85);
 }
 
 #container {
@@ -33,7 +34,7 @@ a {
 }
 
 #story {
-  font-weight: 800;
+  font-weight: 500;
   font-size: 30px;
 }
 

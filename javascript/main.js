@@ -13,7 +13,7 @@ $(document).ready(function() {
       ['Go help the town!', 'town_attack', '', 'stick', '5'],
       ['Go around!', 'wolf_attack', '', 'stick', '6']
     ]],
-    ['wolf_attack', 'You take the long way, deciding not to help the town. You come upon a wolf, ready to attack!', './images/backgrounds/forest.jpg', [
+    ['wolf_attack', 'You take the long way, deciding not to help the town. You must really lack empathy! You come upon a wolf, ready to attack!', './images/backgrounds/forest.jpg', [
       ['Fight!', 'rope_bridge', 'wolf', '', '7'],
       ['Run away!', 'rope_bridge', 'wolf', '', '8']
     ]],
@@ -21,7 +21,7 @@ $(document).ready(function() {
       ['Fight!', 'rope_bridge', 'bandit', '', '9'],
       ['Run away!', 'rope_bridge', 'bandit', '', '10']
     ]],
-    ['rope_bridge', 'You come to a canyon with an old rope bridge that looks like it might collapse! Do you try to cross it, or take the long way around?', '', [
+    ['rope_bridge', 'You come to a canyon with an old rope bridge that looks like it might collapse! (this always goes well in movies...) Do you try to cross it, or take the long way around?', '', [
       ['Cross it!', 'over_bridge', '', '', '11'],
       ['Go around!', 'long_way', '', '', '12']
     ]],
@@ -35,11 +35,11 @@ $(document).ready(function() {
       ['Left!', 'mountain_left', '', '', '17'],
       ['Right!', 'mountain_right', '', '', '18']
     ], 'hermit'],
-    ['mountain_left', 'You take the left path, but after walking for a while, you realize the hermit has been following you. He isn\'t a hermit at all! He\'s another bandit! Fight or run?', '', [
+    ['mountain_left', 'You take the left path, but after walking for a while, you realize the hermit has been following you. He isn\'t a hermit at all! He\'s another bandit! Who could have guessed!? Fight or run?', '', [
       ['Fight!', 'strong_guy', 'hermit', 'fur armor', '19'],
       ['Run away!', 'strong_guy', 'hermit', '', '20']
     ]],
-    ['mountain_right', 'You take the right path, and encounter another wolf! It\'s guarding a dead body that might have useful items!', '', [
+    ['mountain_right', 'You take the right path, and encounter another wolf! It\'s guarding a dead body that might have useful items! (you weirdo)', '', [
       ['Fight it!', 'strong_guy', 'wolf', 'club', '21'],
       ['Run away!', 'strong_guy', 'wolf', '', '22']
     ]],
@@ -60,13 +60,13 @@ $(document).ready(function() {
       ['Fight him and get out of there!', 'snow_shop', 'cave troll', '', '30'],
       ['Run away!', 'snow shop', '', '', '31']
     ]],
-    ['snow_shop', 'You come to a snowy mountain village with a small shop, where once again you can buy a single item. What do you buy?', '', [
+    ['snow_shop', 'You come to a snowy mountain village with a small shop, where once again you can buy a single item. This deal doesn\'t make much sense. What do you buy?', '', [
       ['The axe! (5 damage) - 4 coins', 'mage_warning', '', 'axe', '32'],
       ['The iron armor! (6 extra health points) - 4 coins', 'mage_warning', '', 'iron armor', '33'],
       ['A health potion! (heals 4 points) - 2 coins', 'mage_warning', '', 'strong healing potion', '34'],
       ['Nothing!', 'mage_warning', '', '', '35']
     ], 'merchant'],
-    ['long_way', 'You choose to take the long way around and find another way across the canyon. You find a sturdier bridge and cross it. Halfway across, a bandit attacks!', './images/backgrounds/forest.jpg', [
+    ['long_way', 'You choose to take the long way around and find another way across the canyon. You find a sturdier bridge and cross it. Halfway across, a bandit attacks! These guys all seem to look alike...', './images/backgrounds/forest.jpg', [
       ['Fight!', 'stranger', 'bandit', 'fur armor', '36'],
       ['Run away!', 'stranger', 'bandit', '', '37']
     ]],
@@ -82,7 +82,7 @@ $(document).ready(function() {
       ['Right!', 'mountain_pass_right', '', '', '40'],
       ['Left!', 'mountain_pass_left', '', '', '41']
     ]],
-    ['mountain_pass_right', 'Deep underground, you encounter a skeleton. Suddenly, it jumps to life and attacks!', '', [
+    ['mountain_pass_right', 'Deep underground, you encounter a skeleton. Suddenly, it jumps to life and attacks! Wow your luck is terrible!', '', [
       ['Fight!', 'mountain_pass_shop', 'skeleton', 'skeleton axe', '42'],
       ['Run away!', 'mountain_pass_shop', 'skeleton', '', '43']
     ]],
@@ -118,7 +118,7 @@ $(document).ready(function() {
       ['Fight!', 'evil_squirrel', 'mercenary', '', '69'],
       ['Run away!', 'evil_squirrel', 'mercenary', '', '70']
     ]],
-    ['evil_squirrel', 'After yet another brush with death, you are pleased to encounter a cute squirrel. Do you say hello and pet the little guy?', '', [
+    ['evil_squirrel', 'After yet another brush with death, you are pleased to encounter a cute squirrel. Do you say hello and pet the little guy? He\'s so cute! Nothing could possibly go wrong!', '', [
       ['Pet him!', 'evil_squirrel_attack', '', '', '71'],
       ['Leave him alone!', 'traveling_merchant', '', '', '72']
     ], 'squirrel'],
@@ -152,10 +152,10 @@ $(document).ready(function() {
       ['Fight!', 'final_shop', 'dungeon mage', 'big evil sword', '87'],
       ['Run away!', 'final_shop', 'dungeon mage', 'big evil sword', '88']
     ]],
-    ['murderville_1', 'You decide, due to the lack of a better option, to go to Murderville. Immediately upon entering the town, you are captured and dragged into an arena and locked in with a bandit! There\'s nowhere to run!', '', [
+    ['murderville_1', 'You decide, due to the lack of a better option, to go to Murderville. Immediately upon entering the town, you are captured and dragged into an arena and locked in with a bandit! There\'s nowhere to run! "Fight or die!" shouts the arena announcer!', '', [
       ['Fight!', 'murderville_2', 'bandit', '', '89']
     ]],
-    ['murderville_2', 'The next battle puts you up against another bandit!', '', [
+    ['murderville_2', 'The next battle puts you up against another bandit! Tired of these guys yet?', '', [
       ['Fight!', 'murderville_3', 'hermit', '', '90']
     ]],
     ['murderville_3', 'Up next is a hired mercenary!', '', [
@@ -181,7 +181,7 @@ $(document).ready(function() {
     ['wizard_tower_3', 'Further up the tower, A mage attacks!', '', [
       ['Fight!', 'wizard_tower_4', 'dungeon mage', '', '99']
     ]],
-    ['wizard_tower_4', 'As you near the wizard\'s lair, his apprentice approaches you. "You will never leave this place!" she shouts, preparing to fight!', '', [
+    ['wizard_tower_4', 'As you near the wizard\'s lair, his apprentice approaches you. "You should have backed up your computer!" she shouts, preparing to fight!', '', [
       ['Fight!', 'wizard_tower_5', 'apprentice', '', '100']
     ]],
     ['wizard_tower_5', 'You enter the wizard\'s lair. "HAHAHAHAHAHAHAHAHAHA" he laughs, summoning a massive monster to fight you, before fleeing deeper into his lair!', '', [
@@ -192,7 +192,7 @@ $(document).ready(function() {
       ['Middle!', 'wizard_tower_7', '', 'stick', '103'],
       ['Left!', 'wizard_tower_7', '', 'gold dragon armor', '104']
     ]],
-    ['wizard_tower_7', 'At last, you reach the wizard\'s study. "You made it so far, but you are going to die in this place!" he says. Time for the final battle!', '', [
+    ['wizard_tower_7', 'At last, you reach the wizard\'s study. "Chargers for these things are like $80! Yours will be mine!" he says. Time for the final battle!', '', [
       ['Fight!', 'win', 'wizard', '', '105']
     ]],
 
@@ -352,7 +352,7 @@ $(document).ready(function() {
 
   var enemies = [{ // array of enemies - name, health, damage, reward, image
       name: 'weak bandit',
-      health: 1,
+      health: 2,
       damage: 1,
       reward: 2,
       image: './images/enemies/bandit.png'
@@ -367,14 +367,14 @@ $(document).ready(function() {
     {
       name: 'stranger',
       health: 3,
-      damage: 2,
+      damage: 3,
       reward: 4,
       image: './images/enemies/drunkguy.png'
     },
     {
       name: 'hermit',
       health: 5,
-      damage: 1,
+      damage: 3,
       reward: 4,
       image: './images/enemies/bandit.png'
     },
@@ -402,14 +402,14 @@ $(document).ready(function() {
     {
       name: 'dungeon mage',
       health: 8,
-      damage: 3,
+      damage: 6,
       reward: 2,
       image: './images/enemies/mage.png'
     },
     {
       name: 'apprentice',
       health: 8,
-      damage: 5,
+      damage: 7,
       reward: 0,
       image: './images/enemies/mage.png'
     },
@@ -429,8 +429,8 @@ $(document).ready(function() {
     },
     {
       name: 'cave troll',
-      health: 6,
-      damage: 3,
+      health: 8,
+      damage: 4,
       reward: 6,
       image: './images/enemies/troll.png'
     },
@@ -444,7 +444,7 @@ $(document).ready(function() {
     {
       name: 'zombie',
       health: 8,
-      damage: 2,
+      damage: 3,
       reward: 3,
       image: './images/enemies/zombie.png'
     },
@@ -465,14 +465,14 @@ $(document).ready(function() {
     {
       name: 'skeleton knight',
       health: 8,
-      damage: 3,
+      damage: 5,
       reward: 5,
       image: './images/enemies/skeleton-sword.png'
     },
     {
       name: 'demon',
       health: 21,
-      damage: 5,
+      damage: 6,
       reward: 0,
       image: './images/enemies/demon.png'
     },
@@ -531,7 +531,7 @@ $(document).ready(function() {
       var $player = $('<div>');
       $player.addClass('player');
       if (player.health <= 0) {
-          $player.css('background-image', ('./images/player/dead.png)')); // player is dead
+          $player.css('background-image', ('url(./images/player/dead.png)')); // player is dead
       }
       else {
         $player.css('background-image', ('url(./images/player/player-' + this.weapon + '-' + this.armor + '.png)')); // set player image depending on items

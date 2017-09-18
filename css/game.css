@@ -1,7 +1,8 @@
 body {
   margin: 0;
   overflow: hidden;
-  font-family: monospace;
+  font-family: 'Patrick Hand SC', cursive;
+  color: rgb(87, 87, 85);
 }
 
 div {
@@ -23,13 +24,13 @@ div {
   text-align: left;
   position: absolute;
   margin: 5vh 25vw 0 25vw;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 #choices {
   text-align: left;
   position: absolute;
-  margin: 70vh 25vw 0 25vw;
+  margin: 65vh 25vw 0 25vw;
   font-size: 18px;
 }
 
@@ -57,9 +58,9 @@ div {
 .player {
   position: absolute;
   height: 250px;
-  width: 150px;
+  width: 250px;
   top: 40vh;
-  left: 20vw;
+  left: 17vw;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -79,13 +80,23 @@ div {
 @media (max-width: 1000px) {
 
   #scene-text {
-    font-size: 14px;
+    font-size: 16px;
     margin: 10px;
   }
 
   #choices {
-    font-size: 14px;
-    margin: 70vh 10px;
+    font-size: 18px;
+    margin: 65vh 10px;
+  }
+
+  .choice {
+    background-color: rgba(201, 201, 201, 0.5);
+    margin-top: 5px;
+  }
+
+  .choice:active {
+    background-color: rgba(164, 163, 163, 0.5);
+
   }
 
   #stats {
