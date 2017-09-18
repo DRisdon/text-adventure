@@ -52,4 +52,4 @@ NPC's should only be present when there is no enemy.
 **WIREFRAMES**
 
 ![Landing Page](./images/other/landing-wireframe.png)
-![game Page](./images/other/game-wireframe.png)
+![Game Page](./images/other/game-wireframe.png)

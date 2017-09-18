@@ -3,7 +3,7 @@ body {
   overflow: hidden;
   font-family: 'Patrick Hand SC', cursive;
   color: rgb(87, 87, 85);
-  background-color: #f6f0df;
+  background-color:  #f6f0df;
 }
 
 div {
@@ -83,14 +83,14 @@ div {
   position: absolute;
   height: 250px;
   width: 250px;
-  top: 40vh;
+  top: 39vh;
   left: 60vw;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
 
   #scene-text {
     font-size: 16px;

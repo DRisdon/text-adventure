@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Patrick Hand SC', cursive;
-  color: rgb(87, 87, 85);
+  color: #575755;
   background-color: #f6f0df;
 }
 
@@ -26,12 +26,12 @@ button:hover {
 }
 
 a {
-  color: black;
+  color: #575755;
   text-decoration: none;
 }
 
 #story, #instructions {
-  text-align: justify;
+  text-align: left;
   margin: 5vh 20vw;
 }
 
@@ -42,6 +42,19 @@ a {
 
 #instructions {
   font-size: 20px;
+}
+
+input {
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 16px;
+  color: #575755;
+  border: .5px solid #575755;
+  border-radius: 5px;
+  padding: 0 3px;
+}
+
+input:focus {
+  outline: none;
 }
 
 @media (max-width: 1000px) {
