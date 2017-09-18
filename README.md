@@ -7,7 +7,7 @@ on your journey, so be prepared for a fight!
 
 **RULES**
 
-<img src="./images/player/player--.png" height="250" />
+<img src="./images/player/player--.png" height="250" /><img src="./images/enemies/wizard.png" height="250" />
 
 Player begins with:
 - 10 health
