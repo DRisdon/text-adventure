@@ -97,8 +97,8 @@ $(document).ready(function() {
       ['Nothing!', 'mage_warning', '', '', '49']
     ], 'merchant'],
     ['mage_warning', 'You continue along the road, and are approached by a mysterious cloaked woman. She says "Turn back, or die!" and gets ready to attack!', './images/backgrounds/forest.jpg', [
-      ['Fight!', 'rest_town', 'mysterius mage', '', '50'],
-      ['Run away!', 'rest_town', 'mysterius mage', '', '60']
+      ['Fight!', 'rest_town', 'mysterious mage', '', '50'],
+      ['Run away!', 'rest_town', 'mysterious mage', '', '60']
     ]],
     ['rest_town', 'After escaping the mysterious mage, you find yourself in a calm town on the edge of a dark, spooky forest. The local shop doesn\'t have great items, will sell you as many items as you can afford! Maybe you should stock up before heading into the dark woods!', '', [
       ['The sword! (4 damage) - 2 coins', 'rest_town', '', 'sword', '61'],

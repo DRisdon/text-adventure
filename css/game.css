@@ -111,6 +111,10 @@ div {
     padding: 4px 10px;
   }
 
+  .choice:hover {
+    text-decoration: none;
+  }
+
   .choice:active {
     background-color: rgba(164, 163, 163, 0.5);
 
