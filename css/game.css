@@ -2,8 +2,8 @@ body {
   margin: 0;
   overflow: hidden;
   font-family: 'Patrick Hand SC', cursive;
-  color: rgb(87, 87, 85);
-  background-color:  #f6f0df;
+  color: #494747;
+  text-shadow: 2px 1px #d4cdba;
 }
 
 div {
@@ -19,6 +19,8 @@ div {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #f6f0df;
+  background-blend-mode: multiply;
 }
 
 #scene-text {
@@ -31,17 +33,18 @@ div {
 #choices {
   text-align: left;
   position: absolute;
-  margin: 80vh 25vw 0 25vw;
+  margin: 75vh 25vw 0 25vw;
   font-size: 18px;
 }
 
 .choice {
   padding: 0 5px;
+  margin-top: 5px;
 }
 
 .choice:hover {
-  text-decoration: underline;
   cursor: pointer;
+  text-decoration: underline;
 }
 
 #stats {
@@ -59,7 +62,7 @@ div {
 #enemy-stats {
   position: absolute;
   top: 33vh;
-  left: 67vw;
+  left: 65vw;
   line-height: 17px;
   text-align: right;
 }
@@ -83,7 +86,7 @@ div {
   position: absolute;
   height: 250px;
   width: 250px;
-  top: 39vh;
+  top: 40vh;
   left: 60vw;
   background-position: center;
   background-size: contain;
@@ -95,6 +98,10 @@ div {
   #scene-text {
     font-size: 16px;
     margin: 10px;
+    background-color: rgba(201, 201, 201, 0.8);
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 4px;
   }
 
   #choices {
@@ -104,19 +111,15 @@ div {
   }
 
   .choice {
-    background-color: rgba(201, 201, 201, 0.5);
+    background-color: rgba(201, 201, 201, 0.8);
     margin-top: 5px;
     border-radius: 10px;
-    width: 100%;
     padding: 4px 10px;
-  }
-
-  .choice:hover {
-    text-decoration: none;
+    width: 100%;
   }
 
   .choice:active {
-    background-color: rgba(164, 163, 163, 0.5);
+    background-color: rgba(164, 163, 163, 0.6);
 
   }
   #player-name {
@@ -131,12 +134,20 @@ div {
     font-size: 12px;
     top: 26vh;
     left: 25vw;
+    background-color: rgba(201, 201, 201, 0.6);
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 0 10px;
   }
 
   #enemy-stats {
     font-size: 12px;
     top: 28vh;
     left: 70vw;
+    background-color: rgba(201, 201, 201, 0.6);
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 0 10px;
   }
 
   .player {

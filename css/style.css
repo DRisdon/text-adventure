@@ -1,12 +1,23 @@
 body {
   margin: 0;
   font-family: 'Patrick Hand SC', cursive;
-  color: #575755;
+  color: #494747;
   background-color: #f6f0df;
+  text-shadow: 2px 1px #d4cdba;
 }
 
 #container {
+  background-image: url(../images/backgrounds/wizardlair.jpg);
   text-align: center;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #f6f0df;
+  background-blend-mode: multiply;
 }
 
 h1 {
@@ -26,7 +37,7 @@ button:hover {
 }
 
 a {
-  color: #575755;
+  color: #494747;
   text-decoration: none;
 }
 
@@ -44,11 +55,11 @@ a {
   font-size: 20px;
 }
 
-input {
+input, select:focus, textarea {
   font-family: 'Patrick Hand SC', cursive;
   font-size: 16px;
-  color: #575755;
-  border: .5px solid #575755;
+  color: #494747;
+  border: .5px solid #494747;
   border-radius: 5px;
   padding: 0 3px;
 }
