@@ -1,5 +1,7 @@
 ## TEXT ADVENTURE GAME
 
+**PLAYE THE GAME [HERE](https://drisdon.github.io/text-adventure/)**
+
 **STORY?**
 
 An EVIL wizard has stolen your laptop and disappeared into another dimension! Go get it back! You will encounter strange people and creatures
