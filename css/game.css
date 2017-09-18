@@ -119,6 +119,41 @@ div {
     background-color: rgba(164, 163, 163, 0.5);
 
   }
+  #player-name {
+    font-size: 14px;
+  }
+
+  #enemy-name {
+    font-size: 14px;
+  }
+
+  #stats {
+    font-size: 12px;
+    top: 26vh;
+    left: 25vw;
+  }
+
+  #enemy-stats {
+    font-size: 12px;
+    top: 28vh;
+    left: 70vw;
+  }
+
+  .player {
+    height: 150px;
+    width: 150px;
+    left: 8vw;
+  }
+
+  .enemy-image {
+    height: 150px;
+    width: 150px;
+    left: 50vw;
+  }
+}
+
+@media (max-width: 500px) {
+
 
   #player-name {
     font-size: 14px;
@@ -138,18 +173,6 @@ div {
     font-size: 12px;
     top: 28vh;
     left: 60vw;
-  }
-
-  .player {
-    height: 150px;
-    width: 150px;
-    left: 8vw;
-  }
-
-  .enemy-image {
-    height: 150px;
-    width: 150px;
-    left: 50vw;
   }
 
 }
