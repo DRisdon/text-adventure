@@ -109,7 +109,7 @@ $(document).ready(function() {
     ['spooky_woods', 'You head out from the village and into the spooky woods. After walking for a while, you are approached by a creepy-looking stranger, who offers you more gold than you could ever imagine. Sounds suspicious. Do you accept?', '', [
       ['Yes!', 'skeleton_attack', '', '', '65'],
       ['No!', 'mercenary_attack', '', '', '66']
-    ]],
+    ], 'mage'],
     ['skeleton_attack', 'It was a trick! The strange woman waves her hands around, and a skeleton climbs up out of the ground to attack!', '', [
       ['Fight!', 'mercenary_attack', 'strong skeleton', '', '67'],
       ['Run away!', 'mercenary_attack', 'strong skeleton', '', '68']
@@ -359,7 +359,7 @@ $(document).ready(function() {
     },
     {
       name: 'bandit',
-      health: 3,
+      health: 4,
       damage: 3,
       reward: 4,
       image: './images/enemies/bandit-mace.png'
@@ -380,8 +380,8 @@ $(document).ready(function() {
     },
     {
       name: 'mercenary',
-      health: 6,
-      damage: 3,
+      health: 7,
+      damage: 4,
       reward: 5,
       image: './images/enemies/bandit-mace.png'
     },
@@ -504,6 +504,10 @@ $(document).ready(function() {
     {
       name: 'prospector',
       image: './images/npc/prospector.png'
+    },
+    {
+      name: 'mage',
+      image: './images/enemies/mage.png'
     }
   ]
 
@@ -527,7 +531,7 @@ $(document).ready(function() {
       var $player = $('<div>');
       $player.addClass('player');
       if (player.health <= 0) {
-          $player.css('background-image', ('./player/dead.png)')); // player is dead
+          $player.css('background-image', ('./images/player/dead.png)')); // player is dead
       }
       else {
         $player.css('background-image', ('url(./images/player/player-' + this.weapon + '-' + this.armor + '.png)')); // set player image depending on items

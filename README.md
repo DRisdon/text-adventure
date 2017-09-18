@@ -7,6 +7,8 @@ on your journey, so be prepared for a fight!
 
 **RULES**
 
+![Player Character](./images/player/player--.png)
+
 Player begins with:
 - 10 health
 - a macbook charger as a blunt weapon
