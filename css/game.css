@@ -100,12 +100,15 @@ div {
   #choices {
     font-size: 18px;
     margin: 70vh 10px;
+    width: 90%;
   }
 
   .choice {
     background-color: rgba(201, 201, 201, 0.5);
     margin-top: 5px;
     border-radius: 10px;
+    width: 100%;
+    padding: 4px 10px;
   }
 
   .choice:active {
@@ -113,13 +116,23 @@ div {
 
   }
 
+  #player-name {
+    font-size: 14px;
+  }
+
+  #enemy-name {
+    font-size: 14px;
+  }
+
   #stats {
     font-size: 12px;
+    top: 26vh;
     left: 19vw;
   }
 
   #enemy-stats {
     font-size: 12px;
+    top: 28vh;
     left: 60vw;
   }
 
