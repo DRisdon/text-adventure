@@ -86,7 +86,14 @@ input:focus {
 @media (max-width: 1000px) {
 
   h1 {
+    font-size: 20px;
     margin: 30px auto;
+  }
+
+  h3 {
+    margin: 0;
+    font-weight: 800;
+    font-size: 16px;
   }
 
   #story, #instructions {
@@ -95,7 +102,7 @@ input:focus {
   }
 
   #story {
-    font-size: 30px;
+    font-size: 20px;
   }
 
   #instructions {
@@ -103,8 +110,16 @@ input:focus {
   }
 
   button {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 16px;
+    padding: 5px;
+  }
+
+  .level {
+    font-size: 16px;
+    padding: 1px 2px;
+    opacity: .6;
+    margin: 0;
   }
 
 }
