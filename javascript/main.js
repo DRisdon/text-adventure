@@ -202,7 +202,7 @@ $(document).ready(function() {
     ['lose', 'You\'re dead!', './images/backgrounds/death.jpg', [
       ['START OVER', 'start', '', '', '107']
     ]],
-    ['apple', 'You bought a new computer! You coward! Now you\'re broke!', './images/backgrounds/applestore.jpg', [
+    ['apple', 'You bought a new computer, spending the last of your savings. Within a year, Apple announced a brand new Macbook Pro, better in every way. Sucks to suck.', './images/backgrounds/applestore.jpg', [
       ['START OVER', 'start', '', '', '108']
     ]]
   ]; // array of scene arrays
