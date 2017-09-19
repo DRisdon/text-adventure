@@ -6,7 +6,7 @@ body {
 }
 
 #container {
-  background-image: url(../images/backgrounds/wizardlair.jpg);
+  /*background-image: url(../images/backgrounds/wizardlair.jpg);*/
   text-align: center;
   margin: 0;
   height: 100%;
