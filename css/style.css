@@ -113,6 +113,7 @@ input:focus {
     margin-bottom: 10px;
     font-size: 16px;
     padding: 5px;
+    background-color: rgba(186, 182, 182, 0.74);
   }
 
   .level {
