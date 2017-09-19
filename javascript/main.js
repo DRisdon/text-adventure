@@ -513,6 +513,23 @@ $(document).ready(function() {
   var combatText = ''; // for displaying combat results
   var itemText = '';
 
+  if (localStorage.getItem('diff') === 'easy') {
+    enemies.forEach(function(enemy) {
+      if (enemy.damage > 1) {
+        enemy.damage -= 1;
+        enemy.health -= 1;
+        enemy.reward -= 1;
+      }
+    })
+  }
+  else if (localStorage.getItem('diff') === 'hard') {
+    enemies.forEach(function(enemy) {
+      enemy.damage += 1;
+      enemy.health += 1;
+      enemy.reward += 2;
+    })
+  }
+
   var player = { // player object
     maxHealth: 10,
     health: 10,

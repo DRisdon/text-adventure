@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,19 +12,26 @@
   <script src="./javascript/landing.js"></script>
   <title>Text Adventure</title>
 </head>
+
 <body>
 
   <div id="container">
     <h1>INTERDIMENTIONAL EVIL WIZARD LAPTOP RESCUE</h1>
-    <div id="story">An EVIL wizard has stolen your laptop and disappeared
-      into another dimension!</div>
-    <div id="instructions">Throughought this game, you will be presented with a series of choices.
-      Some choices might hurt you, while others might heal you. You can even pick up weapons and armor
-      to help you in battle! If you run from a battle, you will automatically take some damage,
-      so try to power up and fight!</div>
-      <input type="text" placeholder="enter your name" id="name" maxlength="15" autocomplete="off"> <br /><br />
+    <div id="story">An EVIL wizard has stolen your laptop and disappeared into another dimension!</div>
+    <div id="instructions">Throughought this game, you will be presented with a series of choices. Some choices might hurt you, while others might heal you. You can even pick up weapons and armor to help you in battle! If you run from a battle, you will automatically take some
+      damage, so try to power up and fight! On Harder difficulties, enemies have more health and deal more damage, but drop more money as a reward!
+    </div>
+    <input type="text" placeholder="enter your name" id="name" maxlength="15" autocomplete="off"> <br /><br />
+    <div id="difficulty">
+      <h3>SELECT A DIFFICULTY:</h3> <br />
+      <button id="easy" class="level">Easy</button>
+      <button id="normal" class="level">Normal</button>
+      <button id="hard" class="level">Hard</button>
+    </div>
+    <br />
     <a href="./game.html" id="start"><button>START GAME</button></a>
   </div>
 
 </body>
+
 </html>

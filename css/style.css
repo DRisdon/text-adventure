@@ -20,19 +20,35 @@ body {
 }
 
 h1 {
-  margin: 80px auto;
+  margin: 80px auto 0 auto;
+}
+
+h3 {
+  margin: 0;
+  font-weight: 800;
 }
 
 button {
   font-family: 'Patrick Hand SC', cursive;
   font-size: 30px;
-  padding: 20px 40px;
+  padding: 10px 20px;
   border-radius: 15px;
   outline: none;
 }
 
 button:hover {
   cursor: pointer;
+}
+
+.level {
+  font-size: 20px;
+  padding: 2px 5px;
+  opacity: .6;
+  margin: 0;
+}
+
+#normal {
+  opacity: 1;
 }
 
 a {
@@ -42,7 +58,7 @@ a {
 
 #story, #instructions {
   text-align: left;
-  margin: 5vh 20vw;
+  margin: 5vh 20vw 0 20vw;
 }
 
 #story {
