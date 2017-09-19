@@ -349,7 +349,6 @@ $(document).ready(function() {
       cost: 0
     }
   ];
-
   var enemies = [{ // array of enemies - name, health, damage, reward, image
       name: 'weak bandit',
       health: 2,
@@ -484,7 +483,6 @@ $(document).ready(function() {
       image: './images/enemies/wizard.png'
     }
   ];
-
   var npcs = [{ // array of npcs - name, image
       name: 'merchant',
       image: './images/npc/merchant.png'
@@ -510,7 +508,6 @@ $(document).ready(function() {
       image: './images/enemies/mage.png'
     }
   ]
-
   var sceneObjects = []; // will be filled with scenes once they are constructed
   var thisScene; //current scene
   var combatText = ''; // for displaying combat results
