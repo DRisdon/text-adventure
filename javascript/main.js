@@ -526,7 +526,7 @@ $(document).ready(function() {
       enemies.forEach(function(enemy) {
         enemy.damage += 1;
         enemy.health += 1;
-        enemy.reward += 2;
+        enemy.reward += 3;
       })
     }
   }
