@@ -513,21 +513,22 @@ $(document).ready(function() {
   var combatText = ''; // for displaying combat results
   var itemText = '';
 
-  if (localStorage.getItem('diff') === 'easy') {
-    enemies.forEach(function(enemy) {
-      if (enemy.damage > 1) {
-        enemy.damage -= 1;
-        enemy.health -= 1;
-        enemy.reward -= 1;
-      }
-    })
-  }
-  else if (localStorage.getItem('diff') === 'hard') {
-    enemies.forEach(function(enemy) {
-      enemy.damage += 1;
-      enemy.health += 1;
-      enemy.reward += 2;
-    })
+  function setDifficulty() {
+    if (localStorage.getItem('diff') === 'easy') { // set difficulty to easy
+      enemies.forEach(function(enemy) {
+        if (enemy.damage > 1) {
+          enemy.damage -= 1;
+          enemy.health -= 1;
+          enemy.reward -= 1;
+        }
+      })
+    } else if (localStorage.getItem('diff') === 'hard') { // set difficulty to hard
+      enemies.forEach(function(enemy) {
+        enemy.damage += 1;
+        enemy.health += 1;
+        enemy.reward += 2;
+      })
+    }
   }
 
   var player = { // player object
@@ -546,9 +547,8 @@ $(document).ready(function() {
       var $player = $('<div>');
       $player.addClass('player');
       if (player.health <= 0) {
-          $player.css('background-image', ('url(./images/player/dead.png)')); // player is dead
-      }
-      else {
+        $player.css('background-image', ('url(./images/player/dead.png)')); // player is dead
+      } else {
         $player.css('background-image', ('url(./images/player/player-' + this.weapon + '-' + this.armor + '.png)')); // set player image depending on items
       }
       $('#player-image').append($player);
@@ -566,7 +566,7 @@ $(document).ready(function() {
       } else {
         while (enemyHealth > this.damage) { // take turns damaging each other
           enemyHealth -= this.damage; //deal damage
-          this.health -= Math.floor(Math.random() * (enemyDamage - Math.max((enemyDamage/3), 1)) + Math.max((enemyDamage/3), 1)); // take damage
+          this.health -= Math.floor(Math.random() * (enemyDamage - Math.max((enemyDamage / 3), 1)) + Math.max((enemyDamage / 3), 1)); // take damage
         }
       }
       if (player.health <= 0) { // player died
@@ -695,8 +695,7 @@ $(document).ready(function() {
             $enemyImage.addClass('enemy-image');
             $enemyImage.css('background-image', 'url(' + this.choices[i].combat.image + ')');
             $('#enemy').append($enemyImage);
-          }
-          else if (this.npc !== undefined) {
+          } else if (this.npc !== undefined) {
             var $enemyImage = $('<div>');
             $enemyImage.addClass('enemy-image');
             $enemyImage.css('background-image', 'url(' + this.npc.image + ')');
@@ -770,6 +769,7 @@ $(document).ready(function() {
   }
 
   function init() { // start game
+    setDifficulty();
     for (var i in scenes) {
       sceneObjects.push(makeScene(scenes[i]));
     }
