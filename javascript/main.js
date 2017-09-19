@@ -171,7 +171,7 @@ $(document).ready(function() {
     ], 'merchant'],
     ['wizard_tower_entrance', 'The merchant offers to heal you up for your final battles! The passages through the wizard\'s tower are narrow, so it is going to be impossible to escape battles from this point on!', './images/backgrounds/towerentrance.jpg', [
       ['Go inside!', 'wizard_tower_1', '', 'full heal', '96']
-    ]],
+    ], 'merchant'],
     ['wizard_tower_1', 'Upon entering, you are attacked by a mercenary!', './images/backgrounds/dungeon.jpg', [
       ['Fight!', 'wizard_tower_2', 'mercenary', '', '97']
     ]],
