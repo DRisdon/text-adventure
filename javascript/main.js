@@ -724,7 +724,7 @@ $(document).ready(function() {
           render: function() {
             var $choice = $('<div>');
             $choice.addClass('choice');
-            $choice.addClass(this.identifier);
+            $choice.attr('ident', this.identifier);
             $choice.text('> ' + this.choiceText);
             $choice.click(nextScene); // add choice event listeners
             $('#choices').append($choice); // render to page
@@ -737,7 +737,7 @@ $(document).ready(function() {
 
   function nextScene(choice) { // when a choice is clicked
     var chosen = thisScene.choices.find(function(option) { // find choice that was clicked
-      return option.identifier === choice.target.classList[1];
+      return option.identifier === choice.target.getAttribute('ident');
     });
     if (chosen.choiceText === 'Run away!') { // running away automatically causes a random number between 0 and the enemy's damage
       player.runAway(chosen);
