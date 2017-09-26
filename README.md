@@ -17,10 +17,10 @@ Player begins with:
 - no armor (armor just gives you extra health)
 - no money
 
-You start outside the portal into another dimension. You are presented with 2 choices: go in after the wizard, or go buy a new laptop.
-Buying a new laptop ends the game immediately. Going into the portal initiates the game. You will progress through a series of story choices,
-some involving dialogue, some involving combat. Wrong choices in combat might lead to you taking damage. You can make choices along the way that
-give you more health, or new weapons and armor. If you make it to the final story scene and defeat the final boss without losing all health, you win!
+You start outside the portal into another dimension. You are presented with 2 choices: go in after the wizard, or go buy a new laptop. 
+You will progress through a series of story choices, some involving dialogue, some involving combat. Wrong choices in combat might 
+lead to you taking damage. You can make choices along the way that give you more health, or new weapons and armor. If you make it 
+to the final story scene and defeat the final boss without losing all health, you win!
 
 *combat:*
 When you make a choice that has you fighting (they will say [combat] next to them), your damage will be compared to the enemy's health. If you can't defeat them in 1 hit, you will take damage for every hit it takes you to win. If your health hits 0, you lose.
